@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rustic Apron - Gallery</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #F5F1E8;
+        }
+
+        nav {
+            background-color: #171717;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #F5F1E8;
+        }
+
+        nav div {
+            display: flex;
+        }
+
+        nav a {
+            color: #F5F1E8;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #B4975A
+        }
+
+        .logo {
+            color: #B4975A;
+            font-size: 24px;
+        }
+
+        .reserve-btn {
+            background-color: #B4975A;
+            color: #171717;
+            padding: 10px 18px;
+        }
+
+        h1 {
+            font-family: "Cormorant Garamond", serif;
+            color: #B4975A;
+            font-size: 50px;
+        }
+
+        h2 {
+            font-family: "Cormorant Garamond", serif;
+            color: #B4975A;
+            font-size: 32px;
+        }
+
+        p {
+            font-family: "Inter", sans-serif;
+            color: #6F6A61;
+            font-size: 32px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            border: 1px solid #D9D0C2;
+            border-radius: 5px;
+        }
+
+        .interior-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .interior-grid img {
+            width: 100%;
+            border: 1px solid #D9D0C2;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        section {
+            margin: 40px;
+        }
+
+        h1,
+        p {
+            text-align: center;
+        }
+
+        .gallery-grid img:hover,
+        .interior-grid img:hover {
+            opacity: 0.8;
+        }
+
+        .gallery-grid img,
+        .interior-grid img {
+            border-radius: 5px;
+        }
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #171717;
+
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox.show {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        #previewImage {
+            width: 70%;
+            max-width: 70%;
+            max-height: 80%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            color: #F5F1E8;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-btn {
+            background-color: #B4975A;
+            color: #171717;
+            border: none;
+            width: 45px;
+            height: 45px;
+            font-size: 30px;
+            cursor: pointer;
+            border-radius: 5px;           
+        }
+
+        .nav-btn:hover {
+            background-color: #D8CBB5;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .prev-btn {
+            position: static;
+            margin-right: 15px;
+        }
+
+        .next-btn {
+            position: static;
+            margin-left: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width:1000px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                
+
+            }
+        }
+
+
+        @media screen and (max-width:600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap:15px;
+            }
+        }
+
+        @media screen and (max-width:1000px) {
+            .interior-grid {
+                grid-template-columns: repeat(2, 1fr);
+               
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .interior-grid {
+                grid-template-columns: 1fr;
+                gap:15px;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        @media screen and (max-width: 700px) {
+
+            nav {
+                position: relative;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .reserve {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 25px;
+                cursor: pointer;
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 55%;
+            height: 100vh;
+
+            background-color: #171717;
+            padding: 30px;
+            box-sizing: border-box;
+            z-index: 1000;
+
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: 0.3s;
+
+            pointer-events: none;
+        }
+
+        .mobile-menu.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+
+            pointer-events: auto;
+        }
+
+        .mobile-logo {
+            color: #B4975A;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .mobile-menu a:hover {
+            color: #B4975A;
+        }
+
+        .close-menu {
+            display: block;
+            margin-left: auto;
+            margin-bottom: 15px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            #previewImage {
+                width: 60%;
+                max-width: 60%;
+                max-height: 75vh;
+
+            }
+
+            section {
+                margin: 20px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            Rustic Apron
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="reservations.html">RESERVATIONS</a>
+            <a href="menu.html">MENU</a>
+            <a href="chefs.html">CHEFS</a>
+            <a href="about.html">ABOUT US</a>
+            <a href="gallery.html">GALLERY</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+
+        <div class="reserve">
+            <a class="reserve-btn" href="reservations.html">RESERVE A TABLE</a>
+        </div>
+
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" onclick="toggleMenu()">×</button>
+        <a href="index.html">HOME</a>
+        <a href="reservations.html">RESERVATIONS</a>
+        <a href="menu.html">MENU</a>
+        <a href="chefs.html">CHEFS</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT US</a>
+    </div>
+
+
+    <section>
+        <h1>Our Gallery</h1>
+        <p>A Collection of Our Dishes And Interiors</p>
+    </section>
+
+    <section>
+        <h2>Dishes</h2>
+        <div class="gallery-grid">
+            <img src="images/food-1.jpg" alt="DISH" data-index="0" onclick="openImage(this)">
+            <img src="images/food-2.jpg" alt="DISH" data-index="1" onclick="openImage(this)">
+            <img src="images/food-3.jpg" alt="DISH" data-index="2" onclick="openImage(this)">
+            <img src="images/food-4.jpg" alt="DISH" data-index="3" onclick="openImage(this)">
+            <img src="images/food-5.jpg" alt="DISH" data-index="4" onclick="openImage(this)">
+            <img src="images/food-6.jpg" alt="DISH" data-index="5" onclick="openImage(this)">
+        </div>
+    </section>
+
+    <section>
+        <h2>Interiors</h2>
+
+        <div class="interior-grid">
+            <img src="images/interior-1.jpg" alt="INTERIOR" data-index="6" onclick="openImage(this)">
+            <img src="images/interior-2.jpg" alt="INTERIOR" data-index="7" onclick="openImage(this)">
+            <img src="images/interior-3.jpg" alt="INTERIOR" data-index="8" onclick="openImage(this)">
+            <img src="images/interior-4.jpg" alt="INTERIOR" data-index="9" onclick="openImage(this)">
+        </div>
+    </section>
+
+    <div id="lightbox">
+        <button class="close-btn" onclick="closeImage()">X</button>
+
+
+        <button class="nav-btn prev-btn" onclick="previousImage()">
+            &lt;</button>
+
+        <img id="previewImage" src="" alt="Image Preview">
+
+        <button class="nav-btn next-btn" onclick="nextImage()">&gt;</button>
+
+    </div>
+
+    <script>
+
+        let images = [
+            "images/food-1.jpg",
+            "images/food-2.jpg",
+            "images/food-3.jpg",
+            "images/food-4.jpg",
+            "images/food-5.jpg",
+            "images/food-6.jpg",
+            "images/interior-1.jpg",
+            "images/interior-2.jpg",
+            "images/interior-3.jpg",
+            "images/interior-4.jpg"
+
+        ]
+
+        let currentImage = 0;
+
+        function openImage(image) {
+            let lightbox = document.getElementById("lightbox");
+            let previewImage = document.getElementById("previewImage");
+
+            currentImage = Number(image.dataset.index);
+            previewImage.src = images[currentImage];
+            lightbox.classList.add("show");
+        }
+
+        function closeImage() {
+            let lightbox = document.getElementById("lightbox");
+            lightbox.classList.remove("show");
+        }
+
+        function nextImage() {
+            if (currentImage < images.length - 1) {
+                currentImage++;
+
+                document.getElementById("previewImage").src = images[currentImage];
+            }
+        }
+
+        function previousImage() {
+            if (currentImage > 0) {
+                currentImage--;
+                document.getElementById("previewImage").src = images[currentImage];
+
+            }
+        }
+
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("show");
+        }
+    </script>
+</body>
+
+</html>
