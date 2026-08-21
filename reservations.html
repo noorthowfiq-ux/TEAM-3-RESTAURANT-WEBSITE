@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservations — Rustic Apron</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="reservations.css">
+</head>
+
+<body>
+
+  <nav id="navbar">
+    <div class="container nav-inner">
+
+      <a href="index.html" class="logo">
+        Rustic <span>Apron</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="reservations.html" class="active">Reservations</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="chefs.html">Chefs</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact/contact.html">Contact Us</a></li>
+      </ul>
+
+      <a href="#booking" class="btn btn-primary nav-cta-desktop">
+        Book Now
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
+
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="reservations.html">Reservations</a>
+    <a href="menu.html">Menu</a>
+    <a href="chefs.html">Chefs</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact/contact.html">Contact Us</a>
+  </div>
+
+  <header class="reserve-hero">
+
+    <div class="container">
+
+      <span class="eyebrow">Reservations</span>
+
+      <h1>Reserve Your <em>Table</em></h1>
+
+      <p class="hero-text">
+        Join us for an evening of seasonal cooking and quiet luxury.
+        Tables are held for 15 minutes past the booking time.
+      </p>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <section class="booking-section" id="booking">
+
+      <div class="container booking-layout">
+
+        <!-- Booking Form -->
+
+        <div class="booking-form-wrap">
+
+          <form id="reservationForm" novalidate>
+
+            <h2 class="form-title">Your Details</h2>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="firstName">First Name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" placeholder="John"
+                       autocomplete="given-name" aria-describedby="firstNameError">
+                <div class="error-text" id="firstNameError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last Name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" placeholder="Doe"
+                       autocomplete="family-name" aria-describedby="lastNameError">
+                <div class="error-text" id="lastNameError"></div>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="john@example.com"
+                       autocomplete="email" aria-describedby="emailError">
+                <div class="error-text" id="emailError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="1234567890"
+                       autocomplete="tel" aria-describedby="phoneError">
+                <div class="error-text" id="phoneError"></div>
+              </div>
+
+            </div>
+
+            <h2 class="form-title">Your Booking</h2>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="date">Date <span class="req">*</span></label>
+                <input type="date" id="date" name="date" aria-describedby="dateError">
+                <div class="error-text" id="dateError"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="guests">Number of Guests <span class="req">*</span></label>
+                <select id="guests" name="guests" aria-describedby="guestsError">
+                  <option value="">Select party size</option>
+                  <option value="1">1 guest</option>
+                  <option value="2">2 guests</option>
+                  <option value="3">3 guests</option>
+                  <option value="4">4 guests</option>
+                  <option value="5">5 guests</option>
+                  <option value="6">6 guests</option>
+                  <option value="7">7 guests</option>
+                  <option value="8">8 guests</option>
+                  <option value="9">9 guests</option>
+                  <option value="10">10 guests</option>
+                  <option value="11">11 guests</option>
+                  <option value="12">12 guests</option>
+                </select>
+                <div class="error-text" id="guestsError"></div>
+                <p class="field-hint">
+                  Parties of 13 or more — please call 1234567890.
+                </p>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+
+              <label id="timeLabel">Available Times <span class="req">*</span></label>
+
+              <div class="slot-grid" id="slotGrid" role="group" aria-labelledby="timeLabel">
+                <p class="slot-placeholder">Choose a date to see available times.</p>
+              </div>
+
+              <input type="hidden" id="time" name="time">
+              <div class="error-text" id="timeError"></div>
+
+            </div>
+
+            <div class="form-group">
+
+              <label>Seating Preference</label>
+
+              <div class="radio-row">
+
+                <label class="radio-pill">
+                  <input type="radio" name="seating" value="Main dining room" checked>
+                  <span>Main Dining Room</span>
+                </label>
+
+                <label class="radio-pill">
+                  <input type="radio" name="seating" value="Terrace">
+                  <span>Terrace</span>
+                </label>
+
+                <label class="radio-pill">
+                  <input type="radio" name="seating" value="Chef&rsquo;s counter">
+                  <span>Chef&rsquo;s Counter</span>
+                </label>
+
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label for="occasion">Occasion</label>
+              <select id="occasion" name="occasion">
+                <option value="">No special occasion</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Business dinner">Business Dinner</option>
+                <option value="Celebration">Celebration</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="requests">Special Requests</label>
+              <textarea id="requests" name="requests" rows="4"
+                        placeholder="Allergies, dietary requirements, seating notes…"
+                        aria-describedby="requestsError"></textarea>
+              <div class="form-meta">
+                <div class="error-text" id="requestsError"></div>
+                <span class="char-count" id="charCount">0 / 300</span>
+              </div>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="terms" name="terms" aria-describedby="termsError">
+                <span>
+                  I understand the table is held for 15 minutes and that
+                  cancellations should be made at least 4 hours in advance.
+                </span>
+              </label>
+              <div class="error-text" id="termsError"></div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Confirm Reservation
+            </button>
+
+          </form>
+
+          <!-- Confirmation -->
+
+          <div class="confirmation" id="confirmation" role="status">
+
+            <span class="confirm-mark">&#10003;</span>
+
+            <h2>Table Reserved</h2>
+
+            <p class="confirm-lead" id="confirmLead"></p>
+
+            <div class="confirm-ref">
+              Booking Reference
+              <strong id="bookingRef"></strong>
+            </div>
+
+            <ul class="confirm-list" id="confirmList"></ul>
+
+            <p class="confirm-note">
+              A confirmation email is on its way. Need to change something?
+              Call us on 1234567890.
+            </p>
+
+            <button type="button" class="btn-outline" id="newBooking">
+              Make Another Booking
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Live Summary -->
+
+        <aside class="summary-card" id="summaryCard">
+
+          <h3>Booking Summary</h3>
+
+          <div class="summary-row">
+            <span>Date</span>
+            <strong id="sumDate">&mdash;</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Time</span>
+            <strong id="sumTime">&mdash;</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Guests</span>
+            <strong id="sumGuests">&mdash;</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Seating</span>
+            <strong id="sumSeating">Main dining room</strong>
+          </div>
+
+          <div class="summary-row">
+            <span>Occasion</span>
+            <strong id="sumOccasion">&mdash;</strong>
+          </div>
+
+          <div class="summary-hours">
+
+            <h4>Opening Hours</h4>
+
+            <div class="hours-row">
+              <span>Monday &ndash; Sunday</span>
+              <span>11:00 AM &ndash; 10:00 PM</span>
+            </div>
+
+            <p id="openStatus"></p>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <a href="index.html" class="logo">
+            Rustic <span>Apron</span>
+          </a>
+
+          <p>
+            A modern fine-dining destination where seasonal ingredients,
+            masterful technique, and quiet luxury come together in perfect
+            harmony.
+          </p>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h4>Explore</h4>
+
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="chefs.html">Our Chefs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h4>Visit</h4>
+
+          <ul>
+            <li><a href="reservations.html">Reservations</a></li>
+            <li><a href="contact/contact.html">Contact Us</a></li>
+            <li><a href="#">Private Events</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
+
+        </div>
+
+        <div class="footer-col">
+
+          <h4>Contact</h4>
+
+          <ul>
+            <li>18 Rue du Terroir, Paris</li>
+            <li>1234567890</li>
+            <li>hello@rusticapron.com</li>
+            <li>Tue&ndash;Sun &middot; 6:00 PM &ndash; 11:00 PM</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> Rustic Apron. All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="reservations.js"></script>
+
+</body>
+</html>
