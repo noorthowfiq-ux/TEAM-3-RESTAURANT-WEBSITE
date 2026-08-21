@@ -7,7 +7,13 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome - ADDED FOR SOCIAL ICONS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <style>
+
     :root {
       --ivory: #F5F1E8;
       --dark: #171717;
@@ -303,7 +309,115 @@
       font-size: 14px;
     }
 
-    /* Footer */
+
+    /* =========================================
+       SOCIAL MEDIA SECTION
+       ADDED - HTML SOCIAL MEDIA SECTION
+    ========================================= */
+
+    .social-section {
+      background: var(--dark);
+      color: var(--ivory);
+      padding: 80px 0;
+      text-align: center;
+      margin-top: 80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .social-section h2 {
+      font-family: var(--head);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .social-section h2 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .social-description {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      color: rgba(245, 241, 232, 0.7);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================================
+       SOCIAL ICONS & BUTTONS
+       ADDED - CSS
+    ========================================= */
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-button {
+      min-width: 160px;
+      height: 55px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      padding: 0 25px;
+
+      color: var(--ivory);
+      background: transparent;
+
+      border: 1px solid rgba(245, 241, 232, 0.25);
+
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+
+      transition: all 0.3s ease;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 18px;
+
+      color: var(--gold);
+
+      transition: all 0.3s ease;
+    }
+
+    .social-button:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--dark);
+
+      transform: translateY(-4px);
+    }
+
+    .social-button:hover .social-icon {
+      color: var(--dark);
+    }
+
+    .social-button.clicked {
+      transform: scale(0.95);
+    }
+
+
+    /* =========================================
+       Footer
+    ========================================= */
 
     footer {
       background: var(--dark);
@@ -362,7 +476,13 @@
       opacity: 0.5;
     }
 
+
+    /* =========================================
+       EXISTING RESPONSIVE CSS
+    ========================================= */
+
     @media (max-width: 768px) {
+
       .nav-links,
       .nav-cta-desktop {
         display: none;
@@ -393,9 +513,12 @@
         font-size: 14px;
         gap: 15px;
       }
+
     }
 
+
     @media (max-width: 600px) {
+
       .opening-hours {
         max-width: 100%;
       }
@@ -403,13 +526,33 @@
       .hours-row {
         font-size: 13px;
       }
+
+
+      /* SOCIAL BUTTONS ON MOBILE */
+
+      .social-section {
+        padding: 65px 0;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .social-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
   <nav id="navbar">
+
     <div class="container nav-inner">
 
       <a href="index.html" class="logo">
@@ -417,33 +560,103 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="reservations.html">Reservations</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="chefs.html">Chefs</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="contact/contact.html" class="active">Contact Us</a></li>
+
+        <li>
+          <a href="index.html">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="reservations.html">
+            Reservations
+          </a>
+        </li>
+
+        <li>
+          <a href="menu.html">
+            Menu
+          </a>
+        </li>
+
+        <li>
+          <a href="chefs.html">
+            Chefs
+          </a>
+        </li>
+
+        <li>
+          <a href="about.html">
+            About Us
+          </a>
+        </li>
+
+        <li>
+          <a href="gallery.html">
+            Gallery
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html" class="active">
+            Contact Us
+          </a>
+        </li>
+
       </ul>
 
-      <a href="reservations.html" class="btn btn-primary nav-cta-desktop">
+      <a href="reservations.html"
+         class="btn btn-primary nav-cta-desktop">
+
         Reserve a Table
+
       </a>
 
-      <button class="hamburger" id="hamburger">☰</button>
+      <button
+        class="hamburger"
+        id="hamburger">
+
+        ☰
+
+      </button>
 
     </div>
+
   </nav>
 
+
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="reservations.html">Reservations</a>
-    <a href="menu.html">Menu</a>
-    <a href="chefs.html">Chefs</a>
-    <a href="about.html">About Us</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact/contact.html">Contact Us</a>
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="reservations.html">
+      Reservations
+    </a>
+
+    <a href="menu.html">
+      Menu
+    </a>
+
+    <a href="chefs.html">
+      Chefs
+    </a>
+
+    <a href="about.html">
+      About Us
+    </a>
+
+    <a href="gallery.html">
+      Gallery
+    </a>
+
+    <a href="contact.html">
+      Contact Us
+    </a>
+
   </div>
+
 
   <main>
 
@@ -451,92 +664,211 @@
 
       <div class="container">
 
-        <span class="eyebrow">Get in Touch</span>
+        <span class="eyebrow">
+          Get in Touch
+        </span>
 
-        <h1>Leave Us a <em>Message</em></h1>
+        <h1>
+          Leave Us a <em>Message</em>
+        </h1>
 
         <div class="contact-form">
 
-          <div class="success-msg" id="successMsg">
+          <div class="success-msg"
+               id="successMsg">
+
             Thank you! Your message has been sent successfully.
+
           </div>
+
 
           <form id="contactForm">
 
+
             <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="John Doe">
-              <div class="error-text" id="nameError">
+
+              <label for="name">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe">
+
+              <div class="error-text"
+                   id="nameError">
+
                 Please enter your name.
+
               </div>
+
             </div>
 
+
             <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com">
-              <div class="error-text" id="emailError">
+
+              <label for="email">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com">
+
+              <div class="error-text"
+                   id="emailError">
+
                 Please enter a valid email address.
+
               </div>
+
             </div>
+
 
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="How can we help you?"></textarea>
-              <div class="error-text" id="messageError">
+
+              <label for="message">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="How can we help you?"></textarea>
+
+              <div class="error-text"
+                   id="messageError">
+
                 Please enter a message.
+
               </div>
+
             </div>
 
-            <button type="submit" class="submit-btn">
+
+            <button
+              type="submit"
+              class="submit-btn">
+
               Send Message
+
             </button>
 
+
           </form>
+
         </div>
 
+
         <!-- Opening Hours -->
+
         <section class="opening-hours">
 
-          <h2>Opening Hours</h2>
+          <h2>
+            Opening Hours
+          </h2>
 
           <div class="hours-list">
 
-            <div class="hours-row">
-              <span>Monday</span>
-              <span>11:00 AM - 10:00 PM</span>
-            </div>
 
             <div class="hours-row">
-              <span>Tuesday</span>
-              <span>11:00 AM - 10:00 PM</span>
+
+              <span>
+                Monday
+              </span>
+
+              <span>
+                11:00 AM - 10:00 PM
+              </span>
+
             </div>
 
-            <div class="hours-row">
-              <span>Wednesday</span>
-              <span>11:00 AM - 10:00 PM</span>
-            </div>
 
             <div class="hours-row">
-              <span>Thursday</span>
-              <span>11:00 AM - 10:00 PM</span>
+
+              <span>
+                Tuesday
+              </span>
+
+              <span>
+                11:00 AM - 10:00 PM
+              </span>
+
             </div>
 
-            <div class="hours-row">
-              <span>Friday</span>
-              <span>11:00 AM - 10:00 PM</span>
-            </div>
 
             <div class="hours-row">
-              <span>Saturday</span>
-              <span>11:00 AM - 10:00 PM</span>
+
+              <span>
+                Wednesday
+              </span>
+
+              <span>
+                11:00 AM - 10:00 PM
+              </span>
+
             </div>
 
+
             <div class="hours-row">
-              <span>Sunday</span>
-              <span>11:00 AM - 10:00 PM</span>
+
+              <span>
+                Thursday
+              </span>
+
+              <span>
+                11:00 AM - 10:00 PM
+              </span>
+
             </div>
+
+
+            <div class="hours-row">
+
+              <span>
+                Friday
+              </span>
+
+              <span>
+                11:00 AM - 10:00 PM
+              </span>
+
+            </div>
+
+
+            <div class="hours-row">
+
+              <span>
+                Saturday
+              </span>
+
+              <span>
+                11:00 AM - 10:00 PM
+              </span>
+
+            </div>
+
+
+            <div class="hours-row">
+
+              <span>
+                Sunday
+              </span>
+
+              <span>
+                11:00 AM - 10:00 PM
+              </span>
+
+            </div>
+
 
           </div>
+
 
           <p id="opening-status"></p>
 
@@ -546,7 +878,135 @@
 
     </section>
 
+
+    <!-- =========================================
+         SOCIAL MEDIA SECTION
+         ADDED HTML
+    ========================================= -->
+
+    <section class="social-section">
+
+      <div class="container">
+
+        <span class="eyebrow">
+          Follow Our Journey
+        </span>
+
+
+        <h2>
+          Connect With <em>Rustic Apron</em>
+        </h2>
+
+
+        <p class="social-description">
+
+          Follow us on social media for new dishes,
+          behind-the-scenes moments, chef stories,
+          and special events.
+
+        </p>
+
+
+        <div class="social-buttons">
+
+
+          <!-- INSTAGRAM -->
+
+          <a
+            href="https://instagram.com"
+            class="social-button"
+            data-platform="Instagram"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span class="social-icon">
+
+              <i class="fa-brands fa-instagram"></i>
+
+            </span>
+
+            <span>
+              Instagram
+            </span>
+
+          </a>
+
+
+          <!-- FACEBOOK -->
+
+          <a
+            href="https://facebook.com"
+            class="social-button"
+            data-platform="Facebook"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span class="social-icon">
+
+              <i class="fa-brands fa-facebook-f"></i>
+
+            </span>
+
+            <span>
+              Facebook
+            </span>
+
+          </a>
+
+
+          <!-- X / TWITTER -->
+
+          <a
+            href="https://x.com"
+            class="social-button"
+            data-platform="Twitter"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span class="social-icon">
+
+              <i class="fa-brands fa-x-twitter"></i>
+
+            </span>
+
+            <span>
+              Twitter
+            </span>
+
+          </a>
+
+
+          <!-- YOUTUBE -->
+
+          <a
+            href="https://youtube.com"
+            class="social-button"
+            data-platform="YouTube"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span class="social-icon">
+
+              <i class="fa-brands fa-youtube"></i>
+
+            </span>
+
+            <span>
+              YouTube
+            </span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
   </main>
+
 
   <footer id="contact">
 
@@ -554,164 +1014,309 @@
 
       <div class="footer-grid">
 
+
         <div class="footer-brand">
 
-          <a href="index.html" class="logo">
+          <a href="index.html"
+             class="logo">
+
             Rustic <span>Apron</span>
+
           </a>
 
           <p>
+
             A modern fine-dining destination where seasonal ingredients,
             masterful technique, and quiet luxury come together in perfect
             harmony.
+
           </p>
 
         </div>
 
+
         <div class="footer-col">
 
-          <h4>Explore</h4>
+          <h4>
+            Explore
+          </h4>
 
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="chefs.html">Our Chefs</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about.html">About Us</a></li>
+
+            <li>
+              <a href="index.html">
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a href="menu.html">
+                Menu
+              </a>
+            </li>
+
+            <li>
+              <a href="chefs.html">
+                Our Chefs
+              </a>
+            </li>
+
+            <li>
+              <a href="gallery.html">
+                Gallery
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html">
+                About Us
+              </a>
+            </li>
+
           </ul>
 
         </div>
 
+
         <div class="footer-col">
 
-          <h4>Visit</h4>
+          <h4>
+            Visit
+          </h4>
 
           <ul>
-            <li><a href="reservations.html">Reservations</a></li>
-            <li><a href="contact/contact.html">Contact Us</a></li>
-            <li><a href="#">Private Events</a></li>
-            <li><a href="#">Gift Cards</a></li>
+
+            <li>
+              <a href="reservations.html">
+                Reservations
+              </a>
+            </li>
+
+            <li>
+              <a href="contact.html">
+                Contact Us
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Private Events
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Gift Cards
+              </a>
+            </li>
+
           </ul>
 
         </div>
 
+
         <div class="footer-col">
 
-          <h4>Contact</h4>
+          <h4>
+            Contact
+          </h4>
 
           <ul>
-            <li>18 Rue du Terroir, Paris</li>
-            <li>1234567890</li>
-            <li>hello@rusticapron.com</li>
-            <li>Tue–Sun · 6:00 PM – 11:00 PM</li>
+
+            <li>
+              18 Rue du Terroir, Paris
+            </li>
+
+            <li>
+              +33 1 42 86 18 26
+            </li>
+
+            <li>
+              hello@rusticapron.com
+            </li>
+
+            <li>
+              Tue–Sun · 6:00 PM – 11:00 PM
+            </li>
+
           </ul>
 
         </div>
+
 
       </div>
 
+
       <div class="footer-bottom">
-        &copy; <span id="year"></span> Rustic Apron. All rights reserved.
+
+        &copy;
+
+        <span id="year"></span>
+
+        Rustic Apron.
+        All rights reserved.
+
       </div>
 
     </div>
 
   </footer>
 
+
   <script>
+
+
+    /* =========================================
+       EXISTING JAVASCRIPT
+    ========================================= */
+
 
     /* Footer Year */
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
 
 
     /* Navbar Scroll */
 
-    const navbar = document.getElementById('navbar');
+    const navbar =
+      document.getElementById('navbar');
+
 
     window.addEventListener('scroll', () => {
 
       if (window.scrollY > 50) {
+
         navbar.classList.add('scrolled');
+
       } else {
+
         navbar.classList.remove('scrolled');
+
       }
 
     });
 
 
+
     /* Mobile Menu */
 
-    const ham = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
+    const ham =
+      document.getElementById('hamburger');
+
+    const mobileMenu =
+      document.getElementById('mobileMenu');
+
 
     ham.addEventListener('click', () => {
+
       mobileMenu.classList.toggle('open');
+
     });
 
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
 
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
+    document
+      .querySelectorAll('.mobile-menu a')
+      .forEach(link => {
+
+        link.addEventListener('click', () => {
+
+          mobileMenu.classList.remove('open');
+
+        });
+
       });
 
-    });
 
 
     /* Contact Form Validation */
 
-    const form = document.getElementById('contactForm');
+    const form =
+      document.getElementById('contactForm');
 
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
 
-    const nameError = document.getElementById('nameError');
-    const emailError = document.getElementById('emailError');
-    const messageError = document.getElementById('messageError');
+    const nameInput =
+      document.getElementById('name');
 
-    const successMsg = document.getElementById('successMsg');
+    const emailInput =
+      document.getElementById('email');
+
+    const messageInput =
+      document.getElementById('message');
+
+
+    const nameError =
+      document.getElementById('nameError');
+
+    const emailError =
+      document.getElementById('emailError');
+
+    const messageError =
+      document.getElementById('messageError');
+
+
+    const contactSuccessMsg =
+      document.getElementById('successMsg');
+
 
     form.addEventListener('submit', function(e) {
 
       e.preventDefault();
 
+
       nameError.style.display = 'none';
+
       emailError.style.display = 'none';
+
       messageError.style.display = 'none';
-      successMsg.style.display = 'none';
+
+      contactSuccessMsg.style.display = 'none';
+
 
       let isValid = true;
+
 
       if (nameInput.value.trim() === '') {
 
         nameError.style.display = 'block';
+
         isValid = false;
 
       }
 
-      const emailPattern = /^[^\s@]+\@[^\s@]+\.[^\s@]+$/;
+
+      const emailPattern =
+        /^[^\s@]+\@[^\s@]+\.[^\s@]+$/;
+
 
       if (
         emailInput.value.trim() === '' ||
-        !emailPattern.test(emailInput.value.trim())
+        !emailPattern.test(
+          emailInput.value.trim()
+        )
       ) {
 
         emailError.style.display = 'block';
+
         isValid = false;
 
       }
+
 
       if (messageInput.value.trim() === '') {
 
         messageError.style.display = 'block';
+
         isValid = false;
 
       }
 
+
       if (isValid) {
 
-        successMsg.style.display = 'block';
+        contactSuccessMsg.style.display = 'block';
+
         form.reset();
 
       }
@@ -719,37 +1324,88 @@
     });
 
 
+
     /* Opening Hours */
 
     const openingHours = {
 
-      0: { open: 11, close: 22 }, // Sunday
-      1: { open: 11, close: 22 }, // Monday
-      2: { open: 11, close: 22 }, // Tuesday
-      3: { open: 11, close: 22 }, // Wednesday
-      4: { open: 11, close: 22 }, // Thursday
-      5: { open: 11, close: 22 }, // Friday
-      6: { open: 11, close: 22 }  // Saturday
+      0: {
+        open: 11,
+        close: 22
+      },
+
+      1: {
+        open: 11,
+        close: 22
+      },
+
+      2: {
+        open: 11,
+        close: 22
+      },
+
+      3: {
+        open: 11,
+        close: 22
+      },
+
+      4: {
+        open: 11,
+        close: 22
+      },
+
+      5: {
+        open: 11,
+        close: 22
+      },
+
+      6: {
+        open: 11,
+        close: 22
+      }
 
     };
 
 
     function updateOpeningStatus() {
 
-      const now = new Date();
+      const now =
+        new Date();
 
-      const day = now.getDay();
-      const currentHour = now.getHours();
-      const currentMinutes = now.getMinutes();
 
-      const statusMessage = document.getElementById('opening-status');
+      const day =
+        now.getDay();
 
-      const today = openingHours[day];
 
-      const currentTime = currentHour * 60 + currentMinutes;
+      const currentHour =
+        now.getHours();
 
-      const openingTime = today.open * 60;
-      const closingTime = today.close * 60;
+
+      const currentMinutes =
+        now.getMinutes();
+
+
+      const statusMessage =
+        document.getElementById(
+          'opening-status'
+        );
+
+
+      const today =
+        openingHours[day];
+
+
+      const currentTime =
+        currentHour * 60 +
+        currentMinutes;
+
+
+      const openingTime =
+        today.open * 60;
+
+
+      const closingTime =
+        today.close * 60;
 
 
       if (
@@ -769,7 +1425,58 @@
 
     }
 
+
     updateOpeningStatus();
+
+
+
+    /* =========================================
+       SOCIAL BUTTON INTERACTIONS
+       ADDED JAVASCRIPT
+    ========================================= */
+
+
+    const socialButtons =
+      document.querySelectorAll(
+        '.social-button'
+      );
+
+
+    socialButtons.forEach(button => {
+
+      button.addEventListener(
+        'click',
+        () => {
+
+          button.classList.add(
+            'clicked'
+          );
+
+
+          setTimeout(() => {
+
+            button.classList.remove(
+              'clicked'
+            );
+
+          }, 200);
+
+
+          const platform =
+            button.getAttribute(
+              'data-platform'
+            );
+
+
+          console.log(
+            'Opening ' + platform
+          );
+
+        }
+      );
+
+    });
+
 
   </script>
 
