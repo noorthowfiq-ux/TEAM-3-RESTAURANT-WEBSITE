@@ -152,7 +152,7 @@ nav.scrolled {
   text-align: center;
   background-image:
     linear-gradient(rgba(23, 23, 23, 0.72), rgba(23, 23, 23, 0.82)),
-    url('images/interior-1.jpg');
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
