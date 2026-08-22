@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
+    <link rel="stylesheet" href="style.css">
 
     <!-- font link -->
 
@@ -163,8 +164,8 @@
         }
 
 
-        
-        
+
+
         .hero-section {
             margin-top: 50px;
             padding: 20px;
@@ -443,6 +444,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             background-color: #F5F1E8;
+            margin-bottom: 0px;
 
         }
 
@@ -476,6 +478,7 @@
             min-height: 48px;
             margin-left: 20px;
             border-bottom: solid 1px #D9D0C2;
+
         }
 
         .menu-item img {
@@ -545,7 +548,6 @@
             color: #F5F1E8;
             padding: 60px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 80px; /* Adjusted to match contact.html spacing */
         }
 
         .footer-grid {
@@ -627,9 +629,9 @@
         }
 
 
-        
 
-            .success-message {
+
+        .success-message {
             position: fixed;
             top: 90px;
             right: 25px;
@@ -661,284 +663,294 @@
             color: #B49754;
         }
 
-       
-
-       
-   /* RESPONSIVE  */
 
 
-@media (max-width: 768px) {
- /* NAVBAR  */
 
-    nav {
-        padding: 15px 0;
-    }
-
-    .nav-links,
-    .nav-cta-desktop {
-        display: none;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .mobile-menu {
-        display: flex;
-    }
+        /* RESPONSIVE  */
 
 
-     /* HERO */
+        @media (max-width: 768px) {
+            /* NAVBAR  */
 
-    .hero-section {
-        margin-top: 55px;
-        height: auto;
-        padding: 35px 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
+            nav {
+                padding: 15px 0;
+            }
 
-    .hero-left {
-        width: 100%;
-        text-align: center;
-    }
+            .nav-links,
+            .nav-cta-desktop {
+                display: none;
+            }
 
-    .hero-right {
-        width: 100%;
-    }
+            .hamburger {
+                display: block;
+            }
 
-    .left-para1 {
-        margin: 10px 0;
-        font-size: 14px;
-    }
-
-    .hero-left h1 {
-        font-size: 38px;
-        padding: 10px 0;
-    }
-
-    .left-para2 {
-        margin: 10px 0;
-        line-height: 1.8;
-        font-size: 14px;
-    }
-
-    .hero-right img {
-        width: 100%;
-        margin: 0;
-    }
+            .mobile-menu {
+                display: flex;
+            }
 
 
-    /* MENU FILTER  */
+            /* HERO */
 
-    .menu-box {
-        height: auto;
-        padding: 15px 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
+            .hero-section {
+                margin-top: 55px;
+                height: auto;
+                padding: 35px 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+            }
 
-    .menu-items {
-        margin-top: 0;
-        gap: 5px;
-        font-size: 12px;
-    }
+            .hero-left {
+                width: 100%;
+                text-align: center;
+            }
 
+            .hero-right {
+                width: 100%;
+            }
 
-     /* CHEF SIGNATURE  */
+            .left-para1 {
+                margin: 10px 0;
+                font-size: 14px;
+            }
 
-    .chef-signature {
-        height: auto;
-        padding: 30px 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
+            .hero-left h1 {
+                font-size: 38px;
+                padding: 10px 0;
+            }
 
-    .chef-container {
-        width: 100%;
-        padding: 10px;
-    }
+            .left-para2 {
+                margin: 10px 0;
+                line-height: 1.8;
+                font-size: 14px;
+            }
 
-    .chef-title {
-        font-size: 14px;
-    }
-
-    .chef-container h1 {
-        font-size: 38px;
-    }
-
-    .chef-description {
-        font-size: 14px;
-        line-height: 1.7;
-    }
-
-    .chef-price {
-        line-height: 2;
-    }
-
-    .chef-image {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .chef-image img {
-        width: 80%;
-        height: 300px;
-        margin: 0;
-        object-fit: cover;
-    }
-
- /* EXPLORE DISHES  */
-
-    .explore-dishes-container {
-        padding: 35px 20px;
-        text-align: center;
-    }
-
-    .explore-dishes p {
-        margin-left: 0;
-        padding: 5px;
-    }
-
-    .explore-dishes h1 {
-        font-size: 38px;
-    }
+            .hero-right img {
+                width: 100%;
+                margin: 0;
+            }
 
 
-    /* DISH CARDS  */
+            /* MENU FILTER  */
 
-    .dishescontainer {
-        grid-template-columns: 1fr;
-        padding: 15px;
-    }
+            .menu-box {
+                height: auto;
+                padding: 15px 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
 
-    .dishescard {
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .dishescard img {
-        width: 130px;
-        height: 180px;
-        margin: 8px;
-    }
-
-    .dish-info {
-        width: auto;
-        flex: 1;
-    }
-
-    .dish-info h3 {
-        font-size: 18px;
-        margin: 5px;
-    }
-
-    .dish-info p {
-        padding: 5px;
-        font-size: 13px;
-    }
+            .menu-items {
+                margin-top: 0;
+                gap: 5px;
+                font-size: 12px;
+            }
 
 
-    /* DESSERT & DRINK  */
+            /* CHEF SIGNATURE  */
 
-    .dessert-drink-section {
-        height: auto;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 30px 15px;
-    }
+            .chef-signature {
+                height: auto;
+                padding: 30px 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+            }
 
-    .menu-item {
-        margin-left: 0;
-    }
+            .chef-container {
+                width: 100%;
+                padding: 10px;
+            }
 
-    .menu-item img {
-        width: 60px;
-        height: 60px;
-    }
+            .chef-title {
+                font-size: 14px;
+            }
 
-    .item-content {
-        width: auto;
-        flex: 1;
-    }
+            .chef-container h1 {
+                font-size: 38px;
+            }
 
-    .item-content h4 {
-        font-size: 17px;
-    }
+            .chef-description {
+                font-size: 14px;
+                line-height: 1.7;
+            }
 
-    .item-content p {
-        font-size: 11px;
-    }
+            .chef-price {
+                line-height: 2;
+            }
+
+            .chef-image {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .chef-image img {
+                width: 80%;
+                height: 300px;
+                margin: 0;
+                object-fit: cover;
+            }
+
+            /* EXPLORE DISHES  */
+
+            .explore-dishes-container {
+                padding: 35px 20px;
+                text-align: center;
+            }
+
+            .explore-dishes p {
+                margin-left: 0;
+                padding: 5px;
+            }
+
+            .explore-dishes h1 {
+                font-size: 38px;
+            }
 
 
-     /* FOOTER */
+            /* DISH CARDS  */
 
-    footer {
-        padding: 40px 20px 25px;
-        margin-top:0px;
-    }
+            .dishescontainer {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+            .dishescard {
+                margin: 10px 0;
+                width: 100%;
+            }
 
-    .footer-brand p {
-        max-width: 100%;
-    }
+            .dishescard img {
+                width: 130px;
+                height: 180px;
+                margin: 8px;
+            }
 
-    .footer-bottom {
-        font-size: 12px;
-    }
+            .dish-info {
+                width: auto;
+                flex: 1;
+            }
+
+            .dish-info h3 {
+                font-size: 18px;
+                margin: 5px;
+            }
+
+            .dish-info p {
+                padding: 5px;
+                font-size: 13px;
+            }
 
 
-    /* ================= SUCCESS MESSAGE ================= */
+            /* DESSERT & DRINK  */
 
-    .success-message {
-        right: 10px;
-        left: 10px;
-        top: 80px;
-        font-size: 14px;
-    }
+            .dessert-drink-section {
+                height: auto;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 15px;
+            }
 
-}
+            .menu-item {
+                margin-left: 0;
+            }
+
+            .menu-item img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .item-content {
+                width: auto;
+                flex: 1;
+            }
+
+            .item-content h4 {
+                font-size: 17px;
+            }
+
+            .item-content p {
+                font-size: 11px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 40px 20px 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                font-size: 12px;
+            }
+
+
+            /* ================= SUCCESS MESSAGE ================= */
+
+            .success-message {
+                right: 10px;
+                left: 10px;
+                top: 80px;
+                font-size: 14px;
+            }
+
+        }
     </style>
 
     <!-- navbar -->
     <nav id="navbar">
-      <div class="container nav-inner">
-        <a href="index.html" class="logo">Rustic <span>Apron</span></a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="reservations.html">Reservations</a></li>
-          <li><a href="menu.html" class="active">Menu</a></li>
-          <li><a href="chefs.html">Chefs</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact/contact.html">Contact Us</a></li>
-        </ul>
-        <a href="reservations.html" class="btn btn-primary nav-cta-desktop">Reserve a Table</a>
-        <button class="hamburger" id="hamburger">☰</button>
-      </div>
+        <div class="container nav-inner">
+
+            <a href="index.html" class="logo">
+                Rustic <span>Apron</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="reservations.html" class="reserve-btn">Reservations</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="chefs.html">Chefs</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+            <a href="reservations.html" class="btn btn-primary nav-cta-desktop reserve-btn">
+                Reserve a Table
+            </a>
+
+            <button class="hamburger" id="hamburger">☰</button>
+
+        </div>
     </nav>
 
     <!-- Mobile Menu -->
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="index.html">Home</a>
-      <a href="reservations.html">Reservations</a>
-      <a href="menu.html">Menu</a>
-      <a href="chefs.html">Chefs</a>
-      <a href="about.html">About Us</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact/contact.html">Contact Us</a>
+
+        <a href="index.html">Home</a>
+        <a href="reservations.html" class="reserve-btn">Reservations</a>
+        <a href="menu.html">Menu</a>
+        <a href="chefs.html">Chefs</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+
     </div>
 
     <!-- hero section -->
@@ -958,7 +970,7 @@
         </div>
 
         <div class="hero-right">
-            <img src="./images/images/herosection.jpg" alt="hero section image">
+            <img src="./images/herosection.jpg" alt="hero section image">
         </div>
 
     </div>
@@ -1040,7 +1052,7 @@
             </button>
 
             <!-- Image -->
-            <img id="chefImage" src="./images/images/chef-sigature.jpg" alt="Chef Signature Dish">
+            <img id="chefImage" src="./images/chef-sigature.jpg" >
 
             <!-- Right Button -->
             <button class="right-btn" id="rightBtn">
@@ -1067,7 +1079,7 @@
 
         <div class="dishescard" data-category="main">
 
-            <img src="./images/images/bruschetta.jpg">
+            <img src="./images/bruschetta.jpg">
 
             <div class="dish-info">
                 <h3>Bruschetta</h3>
@@ -1079,7 +1091,7 @@
 
         <div class="dishescard" data-category="main">
 
-            <img src="./images/images/mushroom soup.jpg">
+            <img src="./images/mushroom soup.jpg">
 
             <div class="dish-info">
                 <h3>Creamy Mushroom Soup</h3>
@@ -1091,7 +1103,7 @@
 
         <div class="dishescard" data-category="main">
 
-            <img src="./images/images/mushroom pasta.jpg">
+            <img src="./images/mushroom pasta.jpg">
 
             <div class="dish-info">
                 <h3>Truffle Mushroom Pasta</h3>
@@ -1103,7 +1115,7 @@
 
         <div class="dishescard" data-category="main">
 
-            <img src="./images/images/grilled salmon1.jpg">
+            <img src="./images/grilled salmon1.jpg">
 
             <div class="dish-info">
                 <h3>Grilled Salmon</h3>
@@ -1115,7 +1127,7 @@
 
         <div class="dishescard" data-category="main">
 
-            <img src="./images/images/briyani.jpg">
+            <img src="./images/briyani.jpg">
 
             <div class="dish-info">
                 <h3>Hyderabadi Biryani</h3>
@@ -1127,7 +1139,7 @@
 
         <div class="dishescard" data-category="main">
 
-            <img src="./images/images/chilli panner.jpg">
+            <img src="./images/chilli panner.jpg">
 
             <div class="dish-info">
                 <h3>Crispy Chilli Panner</h3>
@@ -1153,7 +1165,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="./images/images/chocolate lava cake.jpg" alt="Chocolate Lava Cake">
+                <img src="./images/chocolate lava cake.jpg" alt="Chocolate Lava Cake">
 
                 <div class="item-content">
                     <h4>Chocolate Lava Cake</h4>
@@ -1164,7 +1176,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="./images/images/tiramisu.jpg" alt="Tiramisu">
+                <img src="./images/tiramisu.jpg" alt="Tiramisu">
 
                 <div class="item-content">
                     <h4>Tiramisu</h4>
@@ -1175,7 +1187,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="./images/images/cheesecake.jpg" alt="Cheesecake">
+                <img src="./images/cheesecake.jpg" alt="Cheesecake">
 
                 <div class="item-content">
                     <h4>Cheesecake</h4>
@@ -1201,7 +1213,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="./images/images/mojito.jpg" alt="Classic Mojito">
+                <img src="./images/mojito.jpg" alt="Classic Mojito">
 
                 <div class="item-content">
                     <h4>Classic Mojito</h4>
@@ -1212,7 +1224,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="./images/images/blue lagoon.jpg" alt="Blue Lagoon">
+                <img src="./images/blue lagoon.jpg" alt="Blue Lagoon">
 
                 <div class="item-content">
                     <h4>Blue Lagoon</h4>
@@ -1223,7 +1235,7 @@
             </div>
 
             <div class="menu-item">
-                <img src="./images/images/Iced Americano1.jpg" alt="Iced Americano">
+                <img src="./images/Iced Americano1.jpg" alt="Iced Americano">
 
                 <div class="item-content">
                     <h4>Iced Americano</h4>
@@ -1240,50 +1252,88 @@
         </div>
 
     </section>
-    
-    <!-- FOOTER -->
     <footer id="contact">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a href="index.html" class="logo">Rustic <span>Apron</span></a>
-            <p>A modern fine-dining destination where seasonal ingredients, masterful technique, and quiet luxury come together in perfect harmony.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="menu.html">Menu</a></li>
-              <li><a href="chefs.html">Our Chefs</a></li>
-              <li><a href="gallery.html">Gallery</a></li>
-              <li><a href="about.html">About Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Visit</h4>
-            <ul>
-              <li><a href="reservations.html">Reservations</a></li>
-              <li><a href="contact/contact.html">Contact Us</a></li>
-              <li><a href="#">Private Events</a></li>
-              <li><a href="#">Gift Cards</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <ul>
-              <li>18 Rue du Terroir, Paris</li>
-              <li>+33 1 42 86 18 26</li>
-              <li>hello@rusticapron.com</li>
-              <li>Tue–Sun · 6:00 PM – 11:00 PM</li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          &copy; <span id="year"></span> Rustic Apron. All rights reserved.
-        </div>
-      </div>
-    </footer>
 
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- Brand -->
+                <div class="footer-brand">
+
+                    <a href="index.html" class="logo">
+                        Rustic <span>Apron</span>
+                    </a>
+
+                    <p>
+                        A modern fine-dining destination where seasonal ingredients,
+                        masterful technique, and quiet luxury come together in perfect harmony.
+                    </p>
+
+                </div>
+
+
+                <!-- Explore -->
+                <div class="footer-col">
+
+                    <h4>Explore</h4>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="chefs.html">Our Chefs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+
+                </div>
+
+
+                <!-- Visit -->
+                <div class="footer-col">
+
+                    <h4>Visit</h4>
+
+                    <ul>
+                        <li><a href="reservations.html">Reservations</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Private Events</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+
+                </div>
+
+
+                <!-- Contact -->
+                <div class="footer-col">
+
+                    <h4>Contact</h4>
+
+                    <ul>
+                        <li>18 Rue du Terroir, Paris</li>
+                        <li>+33 1 42 86 18 26</li>
+                        <li>hello@rusticapron.com</li>
+                        <li>Tue–Sun · 6:00 PM – 11:00 PM</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Bottom -->
+
+            <div class="footer-bottom">
+
+                &copy;
+                <span id="year"></span>
+                Rustic Apron. All rights reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
     <!-- SUCCESS MESSAGE -->
 
     <div id="successMessage" class="success-message">
@@ -1303,32 +1353,81 @@
 
 </html>
 <script>
-    // =========================================
-    // NAVBAR & FOOTER SCRIPT (FROM CONTACT.HTML)
-    // =========================================
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+
+
+
+    //    NAVBAR
+
+
+    const navbar = document.getElementById("navbar");
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    //  Navbar Scroll Effect 
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+
     });
 
-    const ham = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    ham.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    //  Mobile Menu Open / Close 
+
+    hamburger.addEventListener("click", function () {
+
+        mobileMenu.classList.toggle("open");
+
     });
 
-    // =========================================
-    // MENU PAGE SCRIPT (UNCHANGED)
-    // =========================================
+    //  Close Mobile Menu After Clicking Link 
+
+    document.querySelectorAll(".mobile-menu a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            mobileMenu.classList.remove("open");
+
+        });
+
+    });
+
+    //  Close Mobile Menu When Clicking Outside 
+
+    document.addEventListener("click", function (event) {
+
+        if (
+            mobileMenu.classList.contains("open") &&
+            !mobileMenu.contains(event.target) &&
+            !hamburger.contains(event.target)
+        ) {
+
+            mobileMenu.classList.remove("open");
+
+        }
+
+    });
+
+    // Close Mobile Menu On Desktop 
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 768) {
+
+            mobileMenu.classList.remove("open");
+
+        }
+
+    });
+
+
 
     // SUCCESS MESSAGE
+
 
     const successMessage = document.getElementById("successMessage");
     const successText = document.getElementById("successText");
@@ -1531,7 +1630,7 @@
             }
 
 
-            
+
 
             // STARTERS ----------
 
