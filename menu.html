@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- font link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- font awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+
+
+
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+
+            font-family: "Inter", sans-serif;
+
+
+
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(23, 23, 23, 0.9);
+            padding: 20px 0;
+            transition: 0.3s;
+        }
+
+        nav.scrolled {
+            padding: 12px 0;
+            background: rgba(23, 23, 23, 0.98);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: #F5F1E8;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #B4975A;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #F5F1E8;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #B4975A;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid #B4975A;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: #B4975A;
+            color: #171717;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #B4975A;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: #F5F1E8;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        /* MOBILE MENU */
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background: #171717;
+            padding: 60px 30px;
+            z-index: 99;
+            transition: right 0.3s;
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            color: #F5F1E8;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+
+        
+        
+        .hero-section {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #F5F1E8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 400px;
+            margin-bottom: 0px;
+
+
+
+        }
+
+        .hero-left {
+            width: 45%
+        }
+
+        .hero-right {
+            width: 45%;
+        }
+
+        .hero-right img {
+            width: 100%;
+            display: block;
+            margin: 10px;
+        }
+
+        .hero-left {
+            JUSTIFY-CONTENT: CENTER;
+        }
+
+        .left-para1 {
+            color: #6F6A61;
+            font-size: 16px;
+            font-family: "Inter", sans-serif;
+            margin-top: 40px;
+            margin-left: 20px;
+
+        }
+
+        .hero-left h1 {
+            font-size: 50px;
+            font-family: "Cormorant", serif;
+            padding: 10px;
+            font-weight: 600;
+
+        }
+
+        .left-para2 {
+            font-family: "Inter", sans-serif;
+            line-height: 2.5;
+            color: #6F6A61;
+            font-size: 16px;
+            margin: 30px;
+            margin-top: 0px;
+            margin-left: 10px;
+
+
+        }
+
+        .menu-box {
+
+            display: flex;
+            justify-content: space-around;
+            background-color: rgba(23, 23, 23, 0.9);
+            color: white;
+            height: 50px;
+            border-radius: 10px;
+            margin-bottom: 0px;
+            border-bottom: solid 1px #D9D0C2;
+        }
+
+        .menu-items {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+
+
+
+        }
+
+        .menu-items:hover {
+            color: #B49754;
+            border-bottom: 2px solid #B49754;
+        }
+
+        .chef-signature {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(23, 23, 23, 0.9);
+            color: white;
+            padding: 20px;
+            margin-top: 0px;
+
+            height: 500px;
+            margin-bottom: 0px;
+        }
+
+        .chef-container {
+            width: 30%;
+        }
+
+        .chef-image {
+            width: 65%;
+
+
+        }
+
+        .chef-image img {
+            width: 100%;
+            display: block;
+            margin: 10px;
+            height: 350px;
+        }
+
+        .chef-container {
+            padding: 20px;
+
+
+        }
+
+        .chef-title {
+            font-family: "inter", sans-serif;
+            font-size: 16px;
+            padding-bottom: 20px;
+            color: #B49754;
+        }
+
+        .chef-container h1 {
+            font-family: "Cormorant", serif;
+            font-size: 50px;
+            font-weight: 600;
+        }
+
+        .chef-description {
+            font-family: "inter", sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+
+        }
+
+        .chef-price {
+            line-height: 2.5;
+            color: #B49754;
+        }
+
+        .chef-button {
+            padding: 5px;
+            margin-left: 0px;
+            background-color: #B49754;
+            border: none;
+            font-family: "inter", sans-serif;
+            cursor: pointer;
+
+        }
+
+        .left-btn {
+            font-size: 20px;
+            width: 30px;
+            color: #B49754;
+            background-color: #F5F1E8;
+        }
+
+        .right-btn {
+            font-size: 20px;
+            width: 30px;
+            color: #B49754;
+            background-color: #F5F1E8;
+
+        }
+
+        .left-btn:hover {
+            background-color: #B49754;
+            color: white;
+        }
+
+        .right-btn:hover {
+            background-color: #B49754;
+            color: white;
+
+
+        }
+
+        .explore-dishes-container {
+            background-color: #F5F1E8;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+
+        }
+
+        .explore-dishes {
+            color: #6F6A61;
+
+        }
+
+        .explore-dishes P {
+            font-family: "inter", sans-serif;
+            font-size: 16px;
+            margin-left: 200px;
+            padding: 10px;
+
+        }
+
+        .explore-dishes h1 {
+            font-family: "Cormorant", serif;
+            font-size: 50px;
+            font-weight: 600;
+
+        }
+
+        .dishescontainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 10px;
+            background-color: #F5F1E8;
+            color: #6F6A61;
+        }
+
+        .dishescard {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            border: solid 1px #D9D0C2;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .dishescard img {
+            width: 200px;
+            height: 250px;
+            margin: 10px;
+            object-fit: cover;
+        }
+
+        .dish-info {
+            width: 150px;
+        }
+
+        .dish-info h3 {
+            padding-top: 10px;
+            margin: 10px;
+
+
+
+        }
+
+        .dish-info p {
+            padding: 10px;
+        }
+
+        .dish-price {
+            color: #B49754;
+        }
+
+        .view-dishes {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #B49754;
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .view-dishes:hover {
+            color: #a67c32;
+        }
+
+        .dessert-drink-section {
+            width: 100%;
+            height: 300px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            background-color: #F5F1E8;
+
+        }
+
+        .menu-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .menu-title i {
+            color: #B49754;
+            font-size: 20px;
+        }
+
+        .menu-title h3 {
+            margin: 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #51402a;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            min-height: 48px;
+            margin-left: 20px;
+            border-bottom: solid 1px #D9D0C2;
+        }
+
+        .menu-item img {
+            width: 70px;
+            height: 70px;
+            margin-left: 10px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+
+        .item-content {
+            width: 65%;
+
+
+        }
+
+        .item-content h4 {
+            margin: 0 0 2px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #6F6A61;
+        }
+
+        .item-content p {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            font-size: 12px;
+            line-height: 1.3;
+            color: #777;
+        }
+
+        .price {
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            color: #B49754;
+            font-weight: 600;
+            width: auto;
+            text-align: left;
+            margin-left: 8px;
+            white-space: nowrap;
+
+
+        }
+
+        .view-all {
+            display: block;
+            width: fit-content;
+            margin: 5px auto 0;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #B49754;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .view-all:hover {
+            color: #a67c32;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #171717;
+            color: #F5F1E8;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px; /* Adjusted to match contact.html spacing */
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+
+        /* Brand */
+
+        .footer-brand p {
+            margin: 15px 0;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            max-width: 300px;
+            line-height: 1.7;
+        }
+
+        .footer-brand .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: #F5F1E8;
+            text-decoration: none;
+        }
+
+        .footer-brand .logo span {
+            color: #B4975A;
+            font-style: italic;
+        }
+
+
+        /* Footer headings */
+
+        .footer-col h4 {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #B4975A;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+
+        /* Lists */
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #F5F1E8;
+            opacity: 0.7;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: #B4975A;
+        }
+
+
+        /* Footer bottom */
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+
+        
+
+            .success-message {
+            position: fixed;
+            top: 90px;
+            right: 25px;
+
+            background: #171717;
+            color: #F5F1E8;
+
+            padding: 15px 22px;
+
+            border-left: 4px solid #B49754;
+
+            border-radius: 6px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            z-index: 9999;
+
+            transform: translateX(150%);
+            transition: 0.4s ease;
+        }
+
+        .success-message.show {
+            transform: translateX(0);
+        }
+
+        .success-message i {
+            color: #B49754;
+        }
+
+       
+
+       
+   /* RESPONSIVE  */
+
+
+@media (max-width: 768px) {
+ /* NAVBAR  */
+
+    nav {
+        padding: 15px 0;
+    }
+
+    .nav-links,
+    .nav-cta-desktop {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .mobile-menu {
+        display: flex;
+    }
+
+
+     /* HERO */
+
+    .hero-section {
+        margin-top: 55px;
+        height: auto;
+        padding: 35px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .hero-left {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-right {
+        width: 100%;
+    }
+
+    .left-para1 {
+        margin: 10px 0;
+        font-size: 14px;
+    }
+
+    .hero-left h1 {
+        font-size: 38px;
+        padding: 10px 0;
+    }
+
+    .left-para2 {
+        margin: 10px 0;
+        line-height: 1.8;
+        font-size: 14px;
+    }
+
+    .hero-right img {
+        width: 100%;
+        margin: 0;
+    }
+
+
+    /* MENU FILTER  */
+
+    .menu-box {
+        height: auto;
+        padding: 15px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .menu-items {
+        margin-top: 0;
+        gap: 5px;
+        font-size: 12px;
+    }
+
+
+     /* CHEF SIGNATURE  */
+
+    .chef-signature {
+        height: auto;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .chef-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .chef-title {
+        font-size: 14px;
+    }
+
+    .chef-container h1 {
+        font-size: 38px;
+    }
+
+    .chef-description {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .chef-price {
+        line-height: 2;
+    }
+
+    .chef-image {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chef-image img {
+        width: 80%;
+        height: 300px;
+        margin: 0;
+        object-fit: cover;
+    }
+
+ /* EXPLORE DISHES  */
+
+    .explore-dishes-container {
+        padding: 35px 20px;
+        text-align: center;
+    }
+
+    .explore-dishes p {
+        margin-left: 0;
+        padding: 5px;
+    }
+
+    .explore-dishes h1 {
+        font-size: 38px;
+    }
+
+
+    /* DISH CARDS  */
+
+    .dishescontainer {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .dishescard {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .dishescard img {
+        width: 130px;
+        height: 180px;
+        margin: 8px;
+    }
+
+    .dish-info {
+        width: auto;
+        flex: 1;
+    }
+
+    .dish-info h3 {
+        font-size: 18px;
+        margin: 5px;
+    }
+
+    .dish-info p {
+        padding: 5px;
+        font-size: 13px;
+    }
+
+
+    /* DESSERT & DRINK  */
+
+    .dessert-drink-section {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 15px;
+    }
+
+    .menu-item {
+        margin-left: 0;
+    }
+
+    .menu-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .item-content {
+        width: auto;
+        flex: 1;
+    }
+
+    .item-content h4 {
+        font-size: 17px;
+    }
+
+    .item-content p {
+        font-size: 11px;
+    }
+
+
+     /* FOOTER */
+
+    footer {
+        padding: 40px 20px 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
+
+
+    /* ================= SUCCESS MESSAGE ================= */
+
+    .success-message {
+        right: 10px;
+        left: 10px;
+        top: 80px;
+        font-size: 14px;
+    }
+
+}
+    </style>
+
+    <!-- navbar -->
+    <nav id="navbar">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo">Rustic <span>Apron</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="menu.html" class="active">Menu</a></li>
+          <li><a href="chefs.html">Chefs</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <a href="reservations.html" class="btn btn-primary nav-cta-desktop">Reserve a Table</a>
+        <button class="hamburger" id="hamburger">☰</button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="reservations.html">Reservations</a>
+      <a href="menu.html">Menu</a>
+      <a href="chefs.html">Chefs</a>
+      <a href="about.html">About Us</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <!-- hero section -->
+
+    <div class="hero-section">
+
+        <div class="hero-left">
+
+            <p class="left-para1">Our Menu -----</p>
+            <h1>Crafted with Passion,<br>
+                Served with Love.
+            </h1>
+            <p class="left-para2"> From timeless classics to chef's special creations,
+                <br>
+                every dish is made with the finest ingredients.
+            </p>
+        </div>
+
+        <div class="hero-right">
+            <img src="./images/herosection.jpg" alt="hero section image">
+        </div>
+
+    </div>
+
+    <!--  Menu box-->
+
+    <div class="menu-box">
+
+
+
+
+        <div class="menu-items" data-filter="all">
+            <i class="fa-solid fa-border-all"></i>
+            <p>ALL</p>
+        </div>
+
+        <div class="menu-items" data-filter="starters">
+            <i class="fa-solid fa-utensils"></i>
+            <p>STARTERS</p>
+        </div>
+
+        <div class="menu-items" data-filter="main">
+            <i class="fa-solid fa-utensil-spoon"></i>
+            <p>MAIN COURSE</p>
+        </div>
+
+        <div class="menu-items" data-filter="signature">
+            <i class="fa-solid fa-fire"></i>
+            <p>SIGNATURE</p>
+        </div>
+
+        <div class="menu-items" data-filter="dessert">
+            <i class="fa-solid fa-ice-cream"></i>
+            <p>DESSERTS</p>
+        </div>
+
+        <div class="menu-items" data-filter="drink">
+            <i class="fa-solid fa-mug-hot"></i>
+            <p>DRINKS</p>
+        </div>
+
+    </div>
+
+
+    <!-- chef's signature -->
+
+    <div class="chef-signature">
+
+        <div class="chef-container">
+
+            <p class="chef-title">CHEF'S SIGNATURE ------</p>
+
+            <h1 id="chef-title">
+                Truffle Butter <br>
+                Steak
+            </h1>
+
+            <p class="chef-description" id="chef-description">
+                Premium grilled steak cooked to perfection, served with butter,
+                truffle oil, and a side of roasted vegetables.
+            </p>
+
+            <p class="chef-price" id="chef-price">
+                &#8377;799
+            </p>
+
+            <button class="chef-button">
+                EXPLORE DISH &rarr;
+            </button>
+
+        </div>
+
+
+        <div class="chef-image">
+
+            <!-- Left Button -->
+            <button class="left-btn" id="leftBtn">
+                &#10094;
+            </button>
+
+            <!-- Image -->
+            <img id="chefImage" src="./images/chef-sigature.jpg" alt="Chef Signature Dish">
+
+            <!-- Right Button -->
+            <button class="right-btn" id="rightBtn">
+                &#10095;
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- explore Dishes -->
+    <div class="explore-dishes-container">
+        <div class="explore-dishes">
+            <p>OUR MENU</p>
+            <h1>Explore Our Delicious Dishes </h1>
+        </div>
+    </div>
+
+    <!-- dishescontainer -->
+    <div class="dishescontainer">
+
+        <div class="dishescard" data-category="main">
+
+            <img src="./images/bruschetta.jpg">
+
+            <div class="dish-info">
+                <h3>Bruschetta</h3>
+                <p>Grilled bread topped with diced tomatoes, garlic, basil, and olive oil.</p>
+                <p class="dish-price">&#8377;199</p>
+                <button class="view-dishes">VIEW DISHES &rarr;</button>
+            </div>
+        </div>
+
+        <div class="dishescard" data-category="main">
+
+            <img src="./images/mushroom soup.jpg">
+
+            <div class="dish-info">
+                <h3>Creamy Mushroom Soup</h3>
+                <p>Rich & creamy mushroom soup with herbs & a hint of garlic</p>
+                <p class="dish-price">&#8377;149</p>
+                <button class="view-dishes">VIEW DISHES &rarr;</button>
+            </div>
+        </div>
+
+        <div class="dishescard" data-category="main">
+
+            <img src="./images/mushroom pasta.jpg">
+
+            <div class="dish-info">
+                <h3>Truffle Mushroom Pasta</h3>
+                <p>Creamy pasta with sauteed mushrooms & truffle oil.</p>
+                <p class="dish-price">&#8377;349</p>
+                <button class="view-dishes">VIEW DISHES &rarr;</button>
+            </div>
+        </div>
+
+        <div class="dishescard" data-category="main">
+
+            <img src="./images/grilled salmon1.jpg">
+
+            <div class="dish-info">
+                <h3>Grilled Salmon</h3>
+                <p>Perfectly grilled salmon with lemon pepper sauce & veggies.</p>
+                <p class="dish-price">&#8377;599</p>
+                <button class="view-dishes">VIEW DISHES &rarr;</button>
+            </div>
+        </div>
+
+        <div class="dishescard" data-category="main">
+
+            <img src="./images/briyani.jpg">
+
+            <div class="dish-info">
+                <h3>Hyderabadi Biryani</h3>
+                <p>Aromatic basmati rice cooked with spices & tender chicken.</p>
+                <p class="dish-price">&#8377;399</p>
+                <button class="view-dishes">VIEW DISHES &rarr;</button>
+            </div>
+        </div>
+
+        <div class="dishescard" data-category="main">
+
+            <img src="./images/chilli panner.jpg">
+
+            <div class="dish-info">
+                <h3>Crispy Chilli Panner</h3>
+                <p> Crispy cottage cheese tossed in spicy chilli garlic sauce.</p>
+                <p class="dish-price">&#8377;229</p>
+                <button class="view-dishes">VIEW DISHES &rarr;</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- DRINKS & dessert -->
+    <section class="dessert-drink-section" id="dessertDrinkSection">
+
+        <!-- DESSERTS -->
+        <div class="menu-list dessert-list">
+
+            <div class="menu-title">
+                <i class="fa-solid fa-cake-candles"></i>
+                <h3>DESSERTS</h3>
+            </div>
+
+            <div class="menu-item">
+                <img src="./images/chocolate lava cake.jpg" alt="Chocolate Lava Cake">
+
+                <div class="item-content">
+                    <h4>Chocolate Lava Cake</h4>
+                    <p>Warm chocolate cake with molten center.</p>
+                </div>
+
+                <span class="price">₹100</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="./images/tiramisu.jpg" alt="Tiramisu">
+
+                <div class="item-content">
+                    <h4>Tiramisu</h4>
+                    <p>Classic Italian dessert with coffee & mascarpone.</p>
+                </div>
+
+                <span class="price">₹250</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="./images/cheesecake.jpg" alt="Cheesecake">
+
+                <div class="item-content">
+                    <h4>Cheesecake</h4>
+                    <p>Creamy cheesecake with berry compote.</p>
+                </div>
+
+                <span class="price">₹199</span>
+            </div>
+
+            <a href="#" class="view-all dessert-view">
+                VIEW ALL DESSERTS &rarr;
+            </a>
+
+        </div>
+
+
+        <!-- DRINKS -->
+        <div class="menu-list drink-list">
+
+            <div class="menu-title">
+                <i class="fa-solid fa-martini-glass-citrus"></i>
+                <h3>DRINKS</h3>
+            </div>
+
+            <div class="menu-item">
+                <img src="./images/mojito.jpg" alt="Classic Mojito">
+
+                <div class="item-content">
+                    <h4>Classic Mojito</h4>
+                    <p>Fresh mint, lime & soda.</p>
+                </div>
+
+                <span class="price">₹149</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="./images/blue lagoon.jpg" alt="Blue Lagoon">
+
+                <div class="item-content">
+                    <h4>Blue Lagoon</h4>
+                    <p>Blue curacao with lemonade.</p>
+                </div>
+
+                <span class="price">₹149</span>
+            </div>
+
+            <div class="menu-item">
+                <img src="./images/Iced Americano1.jpg" alt="Iced Americano">
+
+                <div class="item-content">
+                    <h4>Iced Americano</h4>
+                    <p>Bold, smooth & refreshing.</p>
+                </div>
+
+                <span class="price">₹129</span>
+            </div>
+
+            <a href="#" class="view-all drink-view">
+                VIEW ALL DRINKS &rarr;
+            </a>
+
+        </div>
+
+    </section>
+    
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">Rustic <span>Apron</span></a>
+            <p>A modern fine-dining destination where seasonal ingredients, masterful technique, and quiet luxury come together in perfect harmony.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="chefs.html">Our Chefs</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="about.html">About Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Visit</h4>
+            <ul>
+              <li><a href="reservations.html">Reservations</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="#">Private Events</a></li>
+              <li><a href="#">Gift Cards</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li>18 Rue du Terroir, Paris</li>
+              <li>+33 1 42 86 18 26</li>
+              <li>hello@rusticapron.com</li>
+              <li>Tue–Sun · 6:00 PM – 11:00 PM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; <span id="year"></span> Rustic Apron. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- SUCCESS MESSAGE -->
+
+    <div id="successMessage" class="success-message">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span id="successText">
+            Successfully!
+        </span>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
+<script>
+    // =========================================
+    // NAVBAR & FOOTER SCRIPT (FROM CONTACT.HTML)
+    // =========================================
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    const ham = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    ham.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // =========================================
+    // MENU PAGE SCRIPT (UNCHANGED)
+    // =========================================
+
+    // SUCCESS MESSAGE
+
+    const successMessage = document.getElementById("successMessage");
+    const successText = document.getElementById("successText");
+
+    function showSuccess(message) {
+
+        successText.textContent = message;
+
+        successMessage.classList.add("show");
+
+        setTimeout(function () {
+
+            successMessage.classList.remove("show");
+
+        }, 2000);
+
+    }
+
+
+
+    // CHEF SIGNATURE SLIDER
+
+
+    const chefDishes = [
+
+        {
+            image: "./images/chef-sigature.jpg",
+            title: "Truffle Butter <br> Steak",
+            description:
+                "Premium grilled steak cooked to perfection, served with butter, truffle oil, and a side of roasted vegetables.",
+            price: "₹799"
+        },
+
+        {
+            image: "./images/rosemary garlic lamb.jpg",
+            title: "Rosemary Garlic <br> Lamb Chops",
+            description:
+                "Tender lamb chops grilled with rosemary, garlic butter and served with roasted vegetables.",
+            price: "₹699"
+        },
+
+        {
+            image: "./images/Creamy Tuscan 1.jpg",
+            title: "Creamy Tuscan <br> Chicken",
+            description:
+                "Juicy grilled chicken in a creamy Tuscan sauce with sun-dried tomatoes and fresh herbs.",
+            price: "₹549"
+        }
+
+    ];
+
+    let currentIndex = 0;
+
+    const chefImage = document.getElementById("chefImage");
+    const chefTitle = document.getElementById("chef-title");
+    const chefDescription = document.getElementById("chef-description");
+    const chefPrice = document.getElementById("chef-price");
+
+    const leftBtn = document.getElementById("leftBtn");
+    const rightBtn = document.getElementById("rightBtn");
+
+
+    //  Show Chef Dish 
+
+    function showDish() {
+
+        chefImage.src = chefDishes[currentIndex].image;
+
+        chefTitle.innerHTML =
+            chefDishes[currentIndex].title;
+
+        chefDescription.textContent =
+            chefDishes[currentIndex].description;
+
+        chefPrice.textContent =
+            chefDishes[currentIndex].price;
+
+    }
+
+
+    // Next Dish 
+
+    rightBtn.addEventListener("click", function () {
+
+        currentIndex++;
+
+        if (currentIndex >= chefDishes.length) {
+
+            currentIndex = 0;
+
+        }
+
+        showDish();
+
+    });
+
+
+    //  Previous Dish 
+
+    leftBtn.addEventListener("click", function () {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+
+            currentIndex = chefDishes.length - 1;
+
+        }
+
+        showDish();
+
+    });
+
+
+
+    //    FOOTER YEAR
+
+
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+
+
+    // CHEF EXPLORE BUTTON
+
+    const chefButton = document.querySelector(".chef-button");
+
+    chefButton.addEventListener("click", function () {
+
+        showSuccess(
+            "Explore the chef's signature dish successfully!"
+        );
+
+    });
+
+
+
+    // VIEW DISH BUTTONS
+
+
+    const viewDishButtons =
+        document.querySelectorAll(".view-dishes");
+
+    viewDishButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            showSuccess("View dish successfully!");
+
+        });
+
+    });
+
+
+
+    //    MENU FILTER
+
+
+    const menuItems =
+        document.querySelectorAll(".menu-items");
+
+    const dishCards =
+        document.querySelectorAll(".dishescard");
+
+    const dessertDrinkSection =
+        document.getElementById("dessertDrinkSection");
+
+    const dessertList =
+        document.querySelector(".dessert-list");
+
+    const drinkList =
+        document.querySelector(".drink-list");
+
+
+    menuItems.forEach(function (item) {
+
+        item.addEventListener("click", function () {
+
+            const filter =
+                item.getAttribute("data-filter");
+
+
+            // all
+
+            if (filter === "all") {
+
+                dishCards.forEach(function (card) {
+
+                    card.style.display = "flex";
+
+                });
+
+                dessertDrinkSection.style.display = "grid";
+
+                dessertList.style.display = "block";
+
+                drinkList.style.display = "block";
+
+            }
+
+
+            
+
+            // STARTERS ----------
+
+            else if (filter === "starters") {
+
+                dishCards.forEach(function (card) {
+                    card.style.display = "none";
+                });
+
+                /* Dessert + Drinks show */
+                dessertDrinkSection.style.display = "grid";
+
+                dessertList.style.display = "block";
+
+                drinkList.style.display = "block";
+
+                dessertDrinkSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+
+            //  MAIN COURSE 
+
+            else if (filter === "main") {
+
+                dishCards.forEach(function (card) {
+
+                    if (card.dataset.category === "main") {
+
+                        card.style.display = "flex";
+
+                    } else {
+
+                        card.style.display = "none";
+
+                    }
+
+                });
+
+                dessertDrinkSection.style.display = "none";
+
+                document
+                    .querySelector(".explore-dishes-container")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            }
+
+
+            //  SIGNATURE 
+
+            else if (filter === "signature") {
+
+                dishCards.forEach(function (card) {
+
+                    card.style.display = "none";
+
+                });
+
+                dessertDrinkSection.style.display = "none";
+
+                document
+                    .querySelector(".chef-signature")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            }
+            //  DESSERT 
+
+            else if (filter === "dessert") {
+
+                dishCards.forEach(function (card) {
+
+                    card.style.display = "none";
+
+                });
+
+                dessertDrinkSection.style.display = "block";
+
+                dessertList.style.display = "block";
+
+                drinkList.style.display = "none";
+
+                dessertDrinkSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+            //  DRINK 
+
+            else if (filter === "drink") {
+
+                dishCards.forEach(function (card) {
+
+                    card.style.display = "none";
+
+                });
+
+                dessertDrinkSection.style.display = "block";
+
+                dessertList.style.display = "none";
+
+                drinkList.style.display = "block";
+
+                dessertDrinkSection.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        });
+
+    });
+
+
+
+    //    VIEW ALL DESSERTS
+
+
+    const dessertView =
+        document.querySelector(".dessert-view");
+
+    dessertView.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        showSuccess(
+            "Desserts viewed successfully!"
+        );
+
+    });
+
+
+
+    // VIEW ALL DRINKS
+
+
+    const drinkView =
+        document.querySelector(".drink-view");
+
+    drinkView.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        showSuccess(
+            "Drinks viewed successfully!"
+        );
+
+    });
+
+
+
+
+</script>
