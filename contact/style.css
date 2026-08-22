@@ -153,7 +153,7 @@ nav.scrolled {
   position: relative;
   background-image:
     linear-gradient(rgba(23, 23, 23, 0.68), rgba(23, 23, 23, 0.78)),
-    url('../images/bg.jpg');
+    url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1920&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
