@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Chefs</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================================
+           DESIGN SYSTEM
+        ========================================= */
+
+        :root {
+            --warm-ivory: #F5F1E8;
+            --deep-charcoal: #171717;
+            --warm-black: #24211E;
+            --muted-gold: #B4975A;
+            --warm-beige: #D8CBB5;
+            --charcoal: #202020;
+            --warm-gray: #6F6A61;
+            --soft-beige: #D9D0C2;
+        }
+
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--warm-ivory);
+            color: var(--charcoal);
+            font-family: "Inter", sans-serif;
+        }
+
+        button {
+            font-family: "Inter", sans-serif;
+        }
+
+
+        /* =========================================
+           CHEF SECTION
+        ========================================= */
+
+        .chefs-section {
+            width: 100%;
+            padding: 100px 7%;
+            background-color: var(--warm-ivory);
+        }
+
+        .chefs-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+
+        /* =========================================
+           SECTION HEADER
+        ========================================= */
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-label {
+            color: var(--muted-gold);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(42px, 5vw, 64px);
+            font-weight: 600;
+            line-height: 1;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: var(--warm-gray);
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+
+        /* =========================================
+           CHEF GRID
+        ========================================= */
+
+        .chef-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+
+        /* =========================================
+           CHEF CARD
+        ========================================= */
+
+        .chef-card {
+            position: relative;
+            background-color: var(--warm-black);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .chef-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(23, 23, 23, 0.18);
+        }
+
+
+        /* =========================================
+           CHEF IMAGE
+        ========================================= */
+
+        .chef-image {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background-color: var(--warm-beige);
+        }
+
+        .chef-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .chef-card:hover .chef-image img {
+            transform: scale(1.06);
+        }
+
+
+        /* Image overlay */
+
+        .chef-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(23, 23, 23, 0.7),
+                    transparent 50%);
+            opacity: 0.7;
+            transition: opacity 0.4s ease;
+        }
+
+        .chef-card:hover .chef-image::after {
+            opacity: 0.9;
+        }
+
+
+        /* =========================================
+           CHEF CONTENT
+        ========================================= */
+
+        .chef-content {
+            padding: 25px;
+            background-color: var(--warm-black);
+        }
+
+        .chef-role {
+            color: var(--muted-gold);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .chef-name {
+            font-family: "Cormorant Garamond", serif;
+            color: var(--warm-ivory);
+            font-size: 30px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .chef-short-description {
+            color: var(--soft-beige);
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================
+           VIEW PROFILE BUTTON
+        ========================================= */
+
+        .view-profile {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            background: transparent;
+            border: none;
+
+            color: var(--muted-gold);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .view-profile span {
+            transition: transform 0.3s ease;
+        }
+
+        .view-profile:hover span {
+            transform: translateX(5px);
+        }
+
+
+        /* =========================================
+           PROFILE MODAL
+        ========================================= */
+
+        .profile-modal {
+            position: fixed;
+            inset: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 25px;
+
+            background-color: rgba(23, 23, 23, 0.85);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+
+            z-index: 1000;
+        }
+
+        .profile-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        /* =========================================
+           PROFILE BOX
+        ========================================= */
+
+        .profile-box {
+            position: relative;
+
+            width: 100%;
+            max-width: 950px;
+            max-height: 90vh;
+
+            overflow: auto;
+
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+
+            background-color: var(--warm-ivory);
+
+            transform: translateY(30px) scale(0.98);
+
+            transition: transform 0.4s ease;
+        }
+
+        .profile-modal.active .profile-box {
+            transform: translateY(0) scale(1);
+        }
+
+
+        /* =========================================
+           PROFILE IMAGE
+        ========================================= */
+
+        .profile-image {
+            min-height: 520px;
+            background-color: var(--warm-beige);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        /* =========================================
+           PROFILE DETAILS
+        ========================================= */
+
+        .profile-details {
+            padding: 60px 55px;
+            position: relative;
+        }
+
+        .profile-label {
+            color: var(--muted-gold);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .profile-name {
+            font-family: "Cormorant Garamond", serif;
+            color: var(--charcoal);
+            font-size: clamp(42px, 5vw, 58px);
+            font-weight: 600;
+            line-height: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .profile-description {
+            color: var(--warm-gray);
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================
+           CHEF DETAILS
+        ========================================= */
+
+        .chef-details {
+            border-top: 1px solid var(--soft-beige);
+            border-bottom: 1px solid var(--soft-beige);
+
+            padding: 20px 0;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            margin-bottom: 30px;
+        }
+
+        .detail-item small {
+            display: block;
+            color: var(--warm-gray);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+
+        .detail-item strong {
+            color: var(--charcoal);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        /* =========================================
+           CLOSE BUTTON
+        ========================================= */
+
+        .close-modal {
+            position: absolute;
+
+            top: 20px;
+            right: 20px;
+
+            width: 40px;
+            height: 40px;
+
+            border: 1px solid var(--soft-beige);
+            background-color: var(--warm-ivory);
+
+            color: var(--charcoal);
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: all 0.3s ease;
+
+            z-index: 2;
+        }
+
+        .close-modal:hover {
+            background-color: var(--deep-charcoal);
+            color: var(--warm-ivory);
+            border-color: var(--deep-charcoal);
+        }
+
+
+        /* =========================================
+           MODAL NAVIGATION
+        ========================================= */
+
+        .profile-navigation {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .nav-chef {
+            border: none;
+            background: transparent;
+
+            color: var(--charcoal);
+
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: color 0.3s ease;
+        }
+
+        .nav-chef:hover {
+            color: var(--muted-gold);
+        }
+
+        .profile-number {
+            color: var(--warm-gray);
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================================
+           RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 1100px) {
+
+            .chef-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .chef-image {
+                height: 420px;
+            }
+        }
+
+
+        @media (max-width: 750px) {
+
+            .chefs-section {
+                padding: 75px 6%;
+            }
+
+            .section-header {
+                margin-bottom: 45px;
+            }
+
+            .chef-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .chef-image {
+                height: 450px;
+            }
+
+            .profile-box {
+                grid-template-columns: 1fr;
+                max-height: 90vh;
+            }
+
+            .profile-image {
+                min-height: 300px;
+                height: 300px;
+            }
+
+            .profile-image img {
+                min-height: 300px;
+            }
+
+            .profile-details {
+                padding: 45px 30px 35px;
+            }
+
+            .profile-name {
+                font-size: 45px;
+            }
+        }
+
+
+        @media (max-width: 450px) {
+
+            .chefs-section {
+                padding: 60px 5%;
+            }
+
+            .chef-image {
+                height: 400px;
+            }
+
+            .chef-content {
+                padding: 22px;
+            }
+
+            .chef-name {
+                font-size: 27px;
+            }
+
+            .profile-details {
+                padding: 40px 22px 30px;
+            }
+
+            .profile-image {
+                height: 260px;
+                min-height: 260px;
+            }
+
+            .profile-image img {
+                min-height: 260px;
+            }
+
+            .chef-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /* =========================================
+   FIXED NAVBAR
+========================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 88px;
+
+            background: rgba(23, 23, 23, 0.97);
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+            z-index: 1500;
+        }
+
+
+        .nav-container {
+
+            width: 100%;
+            height: 100%;
+
+            padding: 0 4.5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+
+        /* =========================================
+   LOGO
+========================================= */
+
+        .logo {
+
+            color: #F5F1E8;
+
+            text-decoration: none;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+        .logo span {
+
+            color: #B4975A;
+
+            font-style: italic;
+        }
+
+
+        /* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 34px;
+
+            margin-left: auto;
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            color: #E9E5DC;
+
+            text-decoration: none;
+
+            font-family: "Inter", sans-serif;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+
+            padding: 34px 0 31px;
+
+            transition: 0.3s ease;
+        }
+
+
+        /* GOLD UNDERLINE */
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 25px;
+
+            width: 0;
+
+            height: 1px;
+
+            background: #B4975A;
+
+            transition: width 0.3s ease;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #F5F1E8;
+        }
+
+
+        .nav-links a:hover::after {
+
+            width: 100%;
+        }
+
+
+        .nav-links a.active {
+
+            color: #F5F1E8;
+        }
+
+
+        .nav-links a.active::after {
+
+            width: 100%;
+        }
+
+
+        /* =========================================
+   RESERVE BUTTON
+========================================= */
+
+        .reserve-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 176px;
+
+            height: 44px;
+
+            padding: 0 22px;
+
+            background: #B4975A;
+
+            color: #171717;
+
+            text-decoration: none;
+
+            border: 1px solid #B4975A;
+
+            font-family: "Inter", sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 1.7px;
+
+            text-transform: uppercase;
+
+            white-space: nowrap;
+
+            transition: 0.3s ease;
+        }
+
+
+        .reserve-btn:hover {
+
+            background: transparent;
+
+            color: #F5F1E8;
+        }
+
+
+        /* =========================================
+   IMPORTANT
+   SPACE FOR FIXED NAVBAR
+========================================= */
+
+        body {
+
+            padding-top: 88px;
+        }
+
+        /* =========================================
+   FOOTER
+========================================= */
+
+        .footer {
+
+            width: 100%;
+
+            background: #171717;
+
+            color: #C7C2B9;
+
+            padding: 72px 5% 24px;
+        }
+
+
+        .footer-container {
+
+            max-width: 1250px;
+
+            margin: auto;
+        }
+
+
+        /* =========================================
+   FOOTER MAIN
+========================================= */
+
+        .footer-main {
+
+            display: grid;
+
+            grid-template-columns:
+                1.45fr 1fr 1fr 1.2fr;
+
+            gap: 70px;
+
+            padding-bottom: 70px;
+        }
+
+
+        /* =========================================
+   FOOTER BRAND
+========================================= */
+
+        .footer-brand {
+
+            max-width: 330px;
+        }
+
+
+        .footer-logo {
+
+            color: #F5F1E8;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 27px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+        }
+
+
+        .footer-logo span {
+
+            color: #B4975A;
+
+            font-style: italic;
+        }
+
+
+        .footer-description {
+
+            color: #AAA69F;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            margin-bottom: 26px;
+        }
+
+
+        /* =========================================
+   SOCIAL ICONS
+========================================= */
+
+        .social-links {
+
+            display: flex;
+
+            gap: 12px;
+        }
+
+
+        .social-links a {
+
+            width: 42px;
+
+            height: 42px;
+
+            border: 1px solid #3B3A38;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #DDD8CF;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .social-links a:hover {
+
+            color: #B4975A;
+
+            border-color: #B4975A;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================================
+   FOOTER HEADINGS
+========================================= */
+
+        .footer-heading {
+
+            color: #B4975A;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================
+   FOOTER LINKS
+========================================= */
+
+        .footer-links {
+
+            list-style: none;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 17px;
+        }
+
+
+        .footer-links a {
+
+            color: #BBB7B0;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .footer-links a:hover {
+
+            color: #F5F1E8;
+        }
+
+
+        /* =========================================
+   CONTACT
+========================================= */
+
+        .contact-list {
+
+            list-style: none;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 17px;
+        }
+
+
+        .contact-list li {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            color: #BBB7B0;
+
+            font-size: 14px;
+
+            line-height: 1.55;
+        }
+
+
+        .contact-list i {
+
+            width: 16px;
+
+            margin-top: 3px;
+
+            color: #B4975A;
+
+            font-size: 13px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+        .footer-bottom {
+
+            padding-top: 25px;
+
+            border-top: 1px solid #2D2C2A;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #85817A;
+
+            font-size: 13px;
+        }
+
+
+        .footer-right {
+
+            text-align: right;
+        }
+
+
+        .footer-right a {
+
+            color: #AAA69F;
+
+            text-decoration: none;
+
+            transition: 0.3s ease;
+        }
+
+
+        .footer-right a:hover {
+
+            color: #B4975A;
+        }
+
+
+        /* =========================================
+   BACK TO TOP
+========================================= */
+
+        .back-to-top {
+
+            position: fixed;
+
+            right: 18px;
+
+            bottom: 18px;
+
+            z-index: 1600;
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: #B4975A;
+
+            color: #171717;
+
+            text-decoration: none;
+
+            font-size: 19px;
+
+            transition: 0.3s ease;
+        }
+
+
+        .back-to-top:hover {
+
+            transform: translateY(-4px);
+
+            background: #C5A965;
+        }
+
+        /* =========================================
+   NAVBAR RESPONSIVE
+========================================= */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+
+                gap: 20px;
+            }
+
+
+            .nav-links a {
+
+                font-size: 10px;
+            }
+
+
+            .reserve-btn {
+
+                min-width: 145px;
+
+                padding: 0 15px;
+            }
+
+
+            .footer-main {
+
+                grid-template-columns:
+                    1.3fr 1fr 1fr;
+            }
+        }
+
+
+        /* =========================================
+   TABLET
+========================================= */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+
+                height: 72px;
+            }
+
+
+            body {
+
+                padding-top: 72px;
+            }
+
+
+            .nav-container {
+
+                padding: 0 6%;
+            }
+
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .logo {
+
+                font-size: 25px;
+            }
+
+
+            .reserve-btn {
+
+                min-width: 145px;
+
+                height: 40px;
+
+                font-size: 9px;
+            }
+
+
+            .footer-main {
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 45px 30px;
+            }
+
+
+            .footer-brand {
+
+                grid-column: 1 / -1;
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .footer-right {
+
+                text-align: left;
+            }
+        }
+
+
+        /* =========================================
+   MOBILE
+========================================= */
+
+        @media (max-width: 500px) {
+
+            .navbar {
+
+                height: 68px;
+            }
+
+
+            body {
+
+                padding-top: 68px;
+            }
+
+
+            .reserve-btn {
+
+                min-width: 125px;
+
+                padding: 0 10px;
+
+                font-size: 8px;
+
+                letter-spacing: 1.2px;
+            }
+
+
+            .footer {
+
+                padding: 55px 6% 20px;
+            }
+
+
+            .footer-main {
+
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+
+            .footer-brand {
+
+                grid-column: auto;
+            }
+
+
+            .footer-bottom {
+
+                font-size: 12px;
+            }
+
+
+            .back-to-top {
+
+                width: 46px;
+
+                height: 46px;
+
+                right: 14px;
+
+                bottom: 14px;
+            }
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+     FIXED NAVBAR
+================================ -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <!-- LOGO -->
+            <a href="#home" class="logo">
+                Rustic <span>Apron</span>
+            </a>
+
+            <!-- NAVIGATION -->
+            <nav class="nav-links">
+
+                <a href="#home" class="active">Home</a>
+
+                <a href="#reservations">Reservations</a>
+
+                <a href="#menu">Menu</a>
+
+                <a href="#chefs">Chefs</a>
+
+                <a href="#about">About Us</a>
+
+                <a href="#gallery">Gallery</a>
+
+                <a href="#contact">Contact Us</a>
+
+            </nav>
+
+            <!-- RESERVE BUTTON -->
+            <a href="#reservations" class="reserve-btn">
+                Reserve a Table
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         CHEFS SECTION
+    ========================================== -->
+
+    <section class="chefs-section" id="chefs">
+
+        <div class="chefs-container">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="section-header">
+
+                <p class="section-label">
+                    The Culinary Team
+                </p>
+
+                <h1 class="section-title">
+                    Meet Our Chefs
+                </h1>
+
+                <p class="section-description">
+                    Behind every memorable dish is a passionate chef.
+                    Meet the talented people who bring creativity,
+                    tradition and precision to every plate.
+                </p>
+
+            </div>
+
+
+            <!-- =========================================
+                 CHEF CARDS
+            ========================================== -->
+
+            <div class="chef-grid">
+
+
+                <!-- CHEF 1 -->
+
+                <article class="chef-card" data-chef="0">
+
+                    <div class="chef-image">
+
+                        <img src="images/chef 1.avif" alt="Chef Arjun">
+
+                    </div>
+
+                    <div class="chef-content">
+
+                        <p class="chef-role">
+                            Executive Chef
+                        </p>
+
+                        <h2 class="chef-name">
+                            Arjun Mehta
+                        </h2>
+
+                        <p class="chef-short-description">
+                            Creating refined dishes inspired by
+                            traditional Indian flavours.
+                        </p>
+
+                        <button class="view-profile" type="button" onclick="openProfile(0)">
+                            View Profile
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CHEF 2 -->
+
+                <article class="chef-card" data-chef="1">
+
+                    <div class="chef-image">
+
+                        <img src="images/chef 2.jpg" alt="Chef Elena">
+
+                    </div>
+
+                    <div class="chef-content">
+
+                        <p class="chef-role">
+                            Head Chef
+                        </p>
+
+                        <h2 class="chef-name">
+                            Elena Rossi
+                        </h2>
+
+                        <p class="chef-short-description">
+                            Bringing modern European techniques
+                            to an elegant dining experience.
+                        </p>
+
+                        <button class="view-profile" type="button" onclick="openProfile(1)">
+                            View Profile
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CHEF 3 -->
+
+                <article class="chef-card" data-chef="2">
+
+                    <div class="chef-image">
+
+                        <img src="images/chef 3.jpg" alt="Chef Daniel">
+
+                    </div>
+
+                    <div class="chef-content">
+
+                        <p class="chef-role">
+                            Pastry Chef
+                        </p>
+
+                        <h2 class="chef-name">
+                            Daniel Carter
+                        </h2>
+
+                        <p class="chef-short-description">
+                            Crafting delicate desserts with
+                            balance, texture and imagination.
+                        </p>
+
+                        <button class="view-profile" type="button" onclick="openProfile(2)">
+                            View Profile
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CHEF 4 -->
+
+                <article class="chef-card" data-chef="3">
+
+                    <div class="chef-image">
+
+                        <img src="images/chef 4.jpeg" alt="Chef Sofia">
+
+                    </div>
+
+                    <div class="chef-content">
+
+                        <p class="chef-role">
+                            Sous Chef
+                        </p>
+
+                        <h2 class="chef-name">
+                            Sofia Bennett
+                        </h2>
+
+                        <p class="chef-short-description">
+                            Combining seasonal ingredients with
+                            contemporary culinary ideas.
+                        </p>
+
+                        <button class="view-profile" type="button" onclick="openProfile(3)">
+                            View Profile
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+
+
+
+    </section>
+
+
+
+    <!-- =========================================
+         CHEF PROFILE MODAL
+    ========================================== -->
+
+    <div class="profile-modal" id="profileModal" aria-hidden="true">
+
+        <div class="profile-box">
+
+
+            <!-- CLOSE -->
+
+            <button class="close-modal" id="closeModal" type="button" aria-label="Close profile">
+                ×
+            </button>
+
+
+            <!-- IMAGE -->
+
+            <div class="profile-image">
+
+                <img id="profileImage" src="" alt="">
+
+            </div>
+
+
+            <!-- DETAILS -->
+
+            <div class="profile-details">
+
+                <p class="profile-label" id="profileRole"></p>
+
+                <h2 class="profile-name" id="profileName"></h2>
+
+                <p class="profile-description" id="profileDescription"></p>
+
+
+                <!-- EXTRA INFORMATION -->
+
+                <div class="chef-details">
+
+                    <div class="detail-item">
+
+                        <small>
+                            Experience
+                        </small>
+
+                        <strong id="profileExperience"></strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <small>
+                            Speciality
+                        </small>
+
+                        <strong id="profileSpeciality"></strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <small>
+                            Cuisine
+                        </small>
+
+                        <strong id="profileCuisine"></strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <small>
+                            Signature
+                        </small>
+
+                        <strong id="profileSignature"></strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PREVIOUS / NEXT -->
+
+                <div class="profile-navigation">
+
+                    <button class="nav-chef" id="previousChef" type="button">
+                        ← Previous
+                    </button>
+
+
+                    <span class="profile-number" id="profileNumber">
+                    </span>
+
+
+                    <button class="nav-chef" id="nextChef" type="button">
+                        Next →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+            <!-- =========================================
+     FOOTER
+========================================= -->
+
+        <footer class="footer" id="contact">
+
+            <div class="footer-container">
+
+                <div class="footer-main">
+
+
+                    <!-- ==============================
+                 BRAND
+            =============================== -->
+
+                    <div class="footer-brand">
+
+                        <div class="footer-logo">
+                            Rustic <span>Apron</span>
+                        </div>
+
+                        <p class="footer-description">
+
+                            A modern fine-dining destination where
+                            seasonal ingredients, masterful technique,
+                            and quiet luxury come together in perfect
+                            harmony.
+
+                        </p>
+
+
+                        <!-- SOCIAL MEDIA -->
+
+                        <div class="social-links">
+
+                            <a href="#" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+
+                            <a href="#" aria-label="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+
+                            <a href="#" aria-label="Twitter">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+
+                            <a href="#" aria-label="YouTube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ==============================
+                 EXPLORE
+            =============================== -->
+
+                    <div class="footer-column">
+
+                        <h3 class="footer-heading">
+                            Explore
+                        </h3>
+
+                        <ul class="footer-links">
+
+                            <li>
+                                <a href="#home">Home</a>
+                            </li>
+
+                            <li>
+                                <a href="#menu">Menu</a>
+                            </li>
+
+                            <li>
+                                <a href="#chefs">Our Chefs</a>
+                            </li>
+
+                            <li>
+                                <a href="#gallery">Gallery</a>
+                            </li>
+
+                            <li>
+                                <a href="#about">About Us</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- ==============================
+                 VISIT
+            =============================== -->
+
+                    <div class="footer-column">
+
+                        <h3 class="footer-heading">
+                            Visit
+                        </h3>
+
+                        <ul class="footer-links">
+
+                            <li>
+                                <a href="#reservations">
+                                    Reservations
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#contact">
+                                    Contact Us
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    Private Events
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    Gift Cards
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    Careers
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- ==============================
+                 CONTACT
+            =============================== -->
+
+                    <div class="footer-column">
+
+                        <h3 class="footer-heading">
+                            Contact
+                        </h3>
+
+                        <ul class="contact-list">
+
+                            <li>
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                <span>
+                                    18 Rue du Terroir,<br>
+                                    Paris 75008
+                                </span>
+
+                            </li>
+
+
+                            <li>
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                <span>
+                                    +33 1 42 86 18 26
+                                </span>
+
+                            </li>
+
+
+                            <li>
+
+                                <i class="fa-regular fa-envelope"></i>
+
+                                <span>
+                                    hello@rusticapron.com
+                                </span>
+
+                            </li>
+
+
+                            <li>
+
+                                <i class="fa-regular fa-clock"></i>
+
+                                <span>
+                                    Tue–Sun · 6:00 PM – 11:00 PM
+                                </span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+             FOOTER BOTTOM
+        =============================== -->
+
+                <div class="footer-bottom">
+
+                    <p>
+                        © 2026 Rustic Apron. All rights reserved.
+                    </p>
+
+                    <p class="footer-right">
+
+                        Crafted with care ·
+
+                        <a href="#home">
+                            Home Page
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+        /* =========================================
+           CHEF DATA
+        ========================================== */
+
+        const chefs = [
+
+            {
+                name: "Arjun Mehta",
+
+                role: "Executive Chef",
+
+                image:
+                    "images/chef 1.avif",
+
+                description:
+                    "With a passion for authentic Indian cuisine and modern presentation, Arjun creates dishes that respect tradition while introducing a refined contemporary touch. His philosophy is built around seasonal ingredients, balance and simplicity.",
+
+                experience: "14 Years",
+
+                speciality: "Indian Cuisine",
+
+                cuisine: "Modern Indian",
+
+                signature: "Smoked Paneer"
+            },
+
+
+            {
+                name: "Elena Rossi",
+
+                role: "Head Chef",
+
+                image:
+                    "images/chef 2.jpg",
+
+                description:
+                    "Elena brings a European culinary perspective to the restaurant. Her cooking focuses on precision, elegant plating and carefully selected seasonal ingredients inspired by the kitchens of Italy and France.",
+
+                experience: "12 Years",
+
+                speciality: "European Cuisine",
+
+                cuisine: "Italian & French",
+
+                signature: "Truffle Risotto"
+            },
+
+
+            {
+                name: "Daniel Carter",
+
+                role: "Pastry Chef",
+
+                image:
+                    "images/chef 3.jpg",
+
+                description:
+                    "Daniel approaches pastry as both science and art. From delicate plated desserts to freshly baked creations, he focuses on texture, flavour balance and beautiful presentation.",
+
+                experience: "10 Years",
+
+                speciality: "Pastry & Desserts",
+
+                cuisine: "Contemporary",
+
+                signature: "Dark Chocolate Tart"
+            },
+
+
+            {
+                name: "Sofia Bennett",
+
+                role: "Sous Chef",
+
+                image: "images/chef 4.jpeg",
+
+                description:
+                    "Sofia combines creativity with disciplined kitchen execution. Her approach celebrates fresh produce, seasonal menus and modern techniques while maintaining the warmth of traditional cooking.",
+
+                experience: "9 Years",
+
+                speciality: "Seasonal Cuisine",
+
+                cuisine: "Contemporary",
+
+                signature: "Herb Crusted Salmon"
+            }
+        ];
+
+
+        /* =========================================
+           GET ELEMENTS
+        ========================================== */
+
+        const profileModal =
+            document.getElementById("profileModal");
+
+        const closeModal =
+            document.getElementById("closeModal");
+
+        const profileImage =
+            document.getElementById("profileImage");
+
+        const profileName =
+            document.getElementById("profileName");
+
+        const profileRole =
+            document.getElementById("profileRole");
+
+        const profileDescription =
+            document.getElementById("profileDescription");
+
+        const profileExperience =
+            document.getElementById("profileExperience");
+
+        const profileSpeciality =
+            document.getElementById("profileSpeciality");
+
+        const profileCuisine =
+            document.getElementById("profileCuisine");
+
+        const profileSignature =
+            document.getElementById("profileSignature");
+
+        const profileNumber =
+            document.getElementById("profileNumber");
+
+        const previousChef =
+            document.getElementById("previousChef");
+
+        const nextChef =
+            document.getElementById("nextChef");
+
+
+        /* =========================================
+           CURRENT CHEF
+        ========================================== */
+
+        let currentChef = 0;
+
+
+        /* =========================================
+           OPEN PROFILE
+        ========================================== */
+
+        function openProfile(index) {
+
+            currentChef = index;
+
+            updateProfile();
+
+            profileModal.classList.add("active");
+
+            profileModal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        /* =========================================
+           UPDATE PROFILE
+        ========================================== */
+
+        function updateProfile() {
+
+            const chef = chefs[currentChef];
+
+
+            profileImage.src = chef.image;
+
+            profileImage.alt = chef.name;
+
+            profileName.textContent = chef.name;
+
+            profileRole.textContent = chef.role;
+
+            profileDescription.textContent =
+                chef.description;
+
+            profileExperience.textContent =
+                chef.experience;
+
+            profileSpeciality.textContent =
+                chef.speciality;
+
+            profileCuisine.textContent =
+                chef.cuisine;
+
+            profileSignature.textContent =
+                chef.signature;
+
+
+            profileNumber.textContent =
+                `${currentChef + 1} / ${chefs.length}`;
+        }
+
+
+        /* =========================================
+           CLOSE PROFILE
+        ========================================== */
+
+        function closeProfile() {
+
+            profileModal.classList.remove("active");
+
+            profileModal.setAttribute(
+                "aria-hidden",
+                "true"
+            );
+
+            document.body.style.overflow = "";
+        }
+
+
+        /* =========================================
+           CLOSE BUTTON
+        ========================================== */
+
+        closeModal.addEventListener(
+            "click",
+            closeProfile
+        );
+
+
+        /* =========================================
+           PREVIOUS CHEF
+        ========================================== */
+
+        previousChef.addEventListener(
+            "click",
+            function () {
+
+                currentChef--;
+
+                if (currentChef < 0) {
+                    currentChef = chefs.length - 1;
+                }
+
+                updateProfile();
+            }
+        );
+
+
+        /* =========================================
+           NEXT CHEF
+        ========================================== */
+
+        nextChef.addEventListener(
+            "click",
+            function () {
+
+                currentChef++;
+
+                if (currentChef >= chefs.length) {
+                    currentChef = 0;
+                }
+
+                updateProfile();
+            }
+        );
+
+
+        /* =========================================
+           CLOSE WHEN CLICKING OUTSIDE
+        ========================================== */
+
+        profileModal.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === profileModal) {
+                    closeProfile();
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           ESC KEY
+        ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Escape" &&
+                    profileModal.classList.contains("active")
+                ) {
+
+                    closeProfile();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           KEYBOARD NEXT / PREVIOUS
+        ========================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    !profileModal.classList.contains("active")
+                ) {
+                    return;
+                }
+
+
+                if (event.key === "ArrowRight") {
+
+                    currentChef++;
+
+                    if (currentChef >= chefs.length) {
+                        currentChef = 0;
+                    }
+
+                    updateProfile();
+                }
+
+
+                if (event.key === "ArrowLeft") {
+
+                    currentChef--;
+
+                    if (currentChef < 0) {
+                        currentChef = chefs.length - 1;
+                    }
+
+                    updateProfile();
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           CLICK CARD TO OPEN PROFILE
+        ========================================== */
+
+        const chefCards =
+            document.querySelectorAll(".chef-card");
+
+
+        chefCards.forEach(
+            function (card) {
+
+                card.addEventListener(
+                    "click",
+                    function (event) {
+
+                        /*
+                        Prevent the card click from
+                        firing twice when clicking
+                        the View Profile button.
+                        */
+
+                        if (
+                            event.target.closest(".view-profile")
+                        ) {
+                            return;
+                        }
+
+
+                        const chefIndex =
+                            Number(card.dataset.chef);
+
+
+                        openProfile(chefIndex);
+
+                    }
+                );
+
+            }
+        );
+
+        
+
+    </script>
+
+</body>
+
+</html>
